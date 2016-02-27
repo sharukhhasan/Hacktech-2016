@@ -21,5 +21,6 @@ extension Person {
     @NSManaged var phoneNumber: String?
     @NSManaged var facebookUrl: String?
     @NSManaged var linkedinUrl: String?
+    @NSManaged var createdAt: NSDate?
 
 }

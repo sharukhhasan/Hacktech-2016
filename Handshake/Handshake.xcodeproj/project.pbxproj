@@ -19,6 +19,10 @@
 		D0F177CB1C818A5D00691260 /* HandshakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177CA1C818A5D00691260 /* HandshakeUITests.swift */; };
 		D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */; };
 		D0F177DB1C818DA300691260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D91C818DA300691260 /* Person.swift */; };
+		EE44F76A1C820FB300314215 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F7691C820FB300314215 /* TableViewController.swift */; };
+		EE44F76E1C820FC500314215 /* SwipeLeftSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F76B1C820FC500314215 /* SwipeLeftSegue.swift */; };
+		EE44F76F1C820FC500314215 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F76C1C820FC500314215 /* WelcomeViewController.swift */; };
+		EE44F7721C820FCE00314215 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F7711C820FCE00314215 /* ConfirmViewController.swift */; };
 		EE5837C11C81A70F00768863 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837C01C81A70F00768863 /* CoreDataHelper.swift */; };
 		EE5837C31C81A74400768863 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837C21C81A74400768863 /* CoreDataStore.swift */; };
 		EEBD03D11C81ADCC00FBCFAA /* ShakeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBD03D01C81ADCC00FBCFAA /* ShakeHandler.swift */; };
@@ -62,6 +66,10 @@
 		D0F177CC1C818A5D00691260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0F177D91C818DA300691260 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		EE44F7691C820FB300314215 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		EE44F76B1C820FC500314215 /* SwipeLeftSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeLeftSegue.swift; sourceTree = "<group>"; };
+		EE44F76C1C820FC500314215 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		EE44F7711C820FCE00314215 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		EE5837C01C81A70F00768863 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		EE5837C21C81A74400768863 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		EEBD03D01C81ADCC00FBCFAA /* ShakeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeHandler.swift; sourceTree = "<group>"; };
@@ -145,14 +153,11 @@
 			isa = PBXGroup;
 			children = (
 				D0F177A71C818A5C00691260 /* AppDelegate.swift */,
-				B618EB0C1C81C4FA0016D8AB /* SwipeRightSegue.swift */,
-				B618EB0E1C81C7CF0016D8AB /* SwipeLeftSegue.swift */,
 				D0F177DE1C818DE400691260 /* ViewController */,
 				D0F177DD1C818DDA00691260 /* View */,
 				D0B980371C81A8D800DACBCF /* Connect */,
 				D0F177DC1C818DCB00691260 /* Data */,
 				D0F177B61C818A5C00691260 /* Info.plist */,
-				B618EAFF1C81970C0016D8AB /* Bridging-Header.h */,
 			);
 			path = Handshake;
 			sourceTree = "<group>";
@@ -191,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				D0F177AB1C818A5C00691260 /* Main.storyboard */,
-				B618EB061C81AAF40016D8AB /* defaultprofilepic.jpeg */,
 				D0F177B11C818A5C00691260 /* Assets.xcassets */,
 				D0F177B31C818A5C00691260 /* LaunchScreen.storyboard */,
 			);
@@ -201,8 +205,10 @@
 		D0F177DE1C818DE400691260 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B618EB081C81ADD70016D8AB /* ConfirmViewController.swift */,
-				B618EB041C81A4900016D8AB /* LoadingViewController.swift */,
+				EE44F76B1C820FC500314215 /* SwipeLeftSegue.swift */,
+				EE44F7711C820FCE00314215 /* ConfirmViewController.swift */,
+				EE44F76C1C820FC500314215 /* WelcomeViewController.swift */,
+				EE44F7691C820FB300314215 /* TableViewController.swift */,
 				D0F177A91C818A5C00691260 /* MainViewController.swift */,
 				EEBD03D41C81CD0700FBCFAA /* PersonTableViewController.swift */,
 			);
@@ -316,8 +322,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B618EB011C81A0280016D8AB /* shake.png in Resources */,
-				B618EB071C81AAF40016D8AB /* defaultprofilepic.jpeg in Resources */,
 				D0F177B51C818A5C00691260 /* LaunchScreen.storyboard in Resources */,
 				D0F177B21C818A5C00691260 /* Assets.xcassets in Resources */,
 				D0F177AD1C818A5C00691260 /* Main.storyboard in Resources */,
@@ -393,18 +397,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE44F7721C820FCE00314215 /* ConfirmViewController.swift in Sources */,
 				EE5837C31C81A74400768863 /* CoreDataStore.swift in Sources */,
 				EE5837C11C81A70F00768863 /* CoreDataHelper.swift in Sources */,
 				D0F177DB1C818DA300691260 /* Person.swift in Sources */,
 				D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */,
 				EEBD03D51C81CD0700FBCFAA /* PersonTableViewController.swift in Sources */,
 				D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */,
+				EE44F76F1C820FC500314215 /* WelcomeViewController.swift in Sources */,
+				EE44F76A1C820FB300314215 /* TableViewController.swift in Sources */,
 				D0B980361C81941A00DACBCF /* (null) in Sources */,
 				EEBD03D11C81ADCC00FBCFAA /* ShakeHandler.swift in Sources */,
 				D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */,
-				B618EB0D1C81C4FA0016D8AB /* SwipeRightSegue.swift in Sources */,
-				B618EB0B1C81AF130016D8AB /* TableViewController.swift in Sources */,
 				D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */,
+				EE44F76E1C820FC500314215 /* SwipeLeftSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
