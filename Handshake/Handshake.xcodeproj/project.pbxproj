@@ -104,6 +104,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D0B980371C81A8D800DACBCF /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				D0B980351C81941A00DACBCF /* ShakeHandler.swift */,
+			);
+			name = Connect;
+			sourceTree = "<group>";
+		};
 		D0F1779B1C818A5C00691260 = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +140,7 @@
 				D0F177A71C818A5C00691260 /* AppDelegate.swift */,
 				D0F177DE1C818DE400691260 /* ViewController */,
 				D0F177DD1C818DDA00691260 /* View */,
-				D0B980351C81941A00DACBCF /* ShakeHandler.swift */,
+				D0B980371C81A8D800DACBCF /* Connect */,
 				D0F177DC1C818DCB00691260 /* Data */,
 				D0F177B61C818A5C00691260 /* Info.plist */,
 			);
