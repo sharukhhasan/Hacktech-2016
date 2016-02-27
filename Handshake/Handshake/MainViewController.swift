@@ -11,17 +11,26 @@ import PGMappingKit
 
 class MainViewController: UIViewController, ShakeHandlerDelegate {
 
+    var shakeHandler: ShakeHandler?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        shakeHandler = ShakeHandler(delegate: self)
         /* Usage: Initlize ShakeHandler with self as delegate (we added ShakeHandlerDelegate above). Then call sendPerson when needed. */
 
-        let shakeHandler = ShakeHandler(delegate: self)
+    }
+
+    override func viewWillAppear(animated: Bool) {
 
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let person = delegate.managedObjectContext.save(["firstName": "Justin", "lastName": "Jia", "email": "justin.jia@icloud.com"], description: shakeHandler.mapping, error: nil) as! Person
+        let person = delegate.managedObjectContext.save(["firstName": "Justin", "lastName": "Jia", "email": "justin.jia@icloud.com"], description: shakeHandler!.mapping, error: nil) as! Person
 
-        shakeHandler.sendPerson(person, inside: delegate.managedObjectContext)
+        shakeHandler!.prepareToSend(person, inside: delegate.managedObjectContext)
+
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            self.shakeHandler!.send()
+        }
+
     }
 
     // MARK: ShakeHandlerDelegate
