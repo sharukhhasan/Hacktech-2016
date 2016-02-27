@@ -55,6 +55,7 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
             let destinationViewController = segue.destinationViewController as! ConfirmViewController
             destinationViewController.person = receivedPerson
             destinationViewController.context = context
+            subtitleLabel.text = "Waiting for handshake..."
         } else if segue.identifier == "PastSegue" {
             let destinationViewController = segue.destinationViewController as! TableViewController
             destinationViewController.context = context
