@@ -27,7 +27,7 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
 
     let serviceType = "Handshake"
     let peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
-    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "name", remoteIDKey: "name", mapping: ["firstName": "firstName", "lastName": "lastName", "email": "email", "phoneNumber": "phoneNumber", "facebookUrl": "facebookUrl", "linkedinUrl": "linkedinUrl", "dateOfBirth": "dateOfBirth"])
+    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "firstName", remoteIDKey: "firstName", mapping: ["firstName": "firstName", "lastName": "lastName", "email": "email", "phoneNumber": "phoneNumber", "facebookUrl": "facebookUrl", "linkedinUrl": "linkedinUrl", "dateOfBirth": "dateOfBirth"])
 
     var context: NSManagedObjectContext?
 
