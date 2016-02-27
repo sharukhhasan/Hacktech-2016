@@ -56,9 +56,12 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
 
         advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: info, serviceType: serviceType)
         browser = MCNearbyServiceBrowser(peer: peerID, serviceType: serviceType)
+        
+        advertiser!.delegate = self
+        browser!.delegate = self
 
-        advertiser?.startAdvertisingPeer()
-        browser?.startBrowsingForPeers()
+        advertiser!.startAdvertisingPeer()
+        browser!.startBrowsingForPeers()
     }
 
     // MARK: MCNearbyServiceAdvertiserDelegate
