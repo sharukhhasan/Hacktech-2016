@@ -18,9 +18,8 @@
 		D0F177CB1C818A5D00691260 /* HandshakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177CA1C818A5D00691260 /* HandshakeUITests.swift */; };
 		D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */; };
 		D0F177DB1C818DA300691260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D91C818DA300691260 /* Person.swift */; };
-		EE5837B31C8196C000768863 /* linkedin-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE5837B21C8196C000768863 /* linkedin-sdk.framework */; };
-		EE5837B51C819B7700768863 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837B41C819B7700768863 /* CoreDataHelper.swift */; };
-		EE5837B71C819BDA00768863 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837B61C819BDA00768863 /* CoreDataStore.swift */; };
+		EE5837C11C81A70F00768863 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837C01C81A70F00768863 /* CoreDataHelper.swift */; };
+		EE5837C31C81A74400768863 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837C21C81A74400768863 /* CoreDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2833BF2E21D42269B67926EC /* Pods-Handshake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.debug.xcconfig"; sourceTree = "<group>"; };
+		55B3C84C7F9215F65B34C85E /* Pods-Handshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.release.xcconfig"; sourceTree = "<group>"; };
 		6C535288EE370B036460253A /* Pods_Handshake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Handshake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		954C554606652D384032EDC1 /* Pods-Handshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.release.xcconfig"; sourceTree = "<group>"; };
 		D0F177A41C818A5C00691260 /* Handshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F177A71C818A5C00691260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0F177A91C818A5C00691260 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -59,10 +59,8 @@
 		D0F177CC1C818A5D00691260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0F177D91C818DA300691260 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		E13EBC981322F6FC6CA4C5BC /* Pods-Handshake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.debug.xcconfig"; sourceTree = "<group>"; };
-		EE5837B21C8196C000768863 /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "linkedin-sdk.framework"; path = "../../../Downloads/li-ios-sdk-1.0.7-release/linkedin-sdk.framework"; sourceTree = "<group>"; };
-		EE5837B41C819B7700768863 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		EE5837B61C819BDA00768863 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		EE5837C01C81A70F00768863 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		EE5837C21C81A74400768863 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +69,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF57CCBD7894E2EA55DCC531 /* Pods_Handshake.framework in Frameworks */,
-				EE5837B31C8196C000768863 /* linkedin-sdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,11 +89,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		41501444347323C0BB7AFCC5 /* Pods */ = {
+		1BB470DC29928D0B7E7FB17D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E13EBC981322F6FC6CA4C5BC /* Pods-Handshake.debug.xcconfig */,
-				954C554606652D384032EDC1 /* Pods-Handshake.release.xcconfig */,
+				2833BF2E21D42269B67926EC /* Pods-Handshake.debug.xcconfig */,
+				55B3C84C7F9215F65B34C85E /* Pods-Handshake.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -104,7 +101,6 @@
 		5625105C5F6CF0A90AB4CA1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EE5837B21C8196C000768863 /* linkedin-sdk.framework */,
 				6C535288EE370B036460253A /* Pods_Handshake.framework */,
 			);
 			name = Frameworks;
@@ -117,8 +113,8 @@
 				D0F177BE1C818A5D00691260 /* HandshakeTests */,
 				D0F177C91C818A5D00691260 /* HandshakeUITests */,
 				D0F177A51C818A5C00691260 /* Products */,
-				41501444347323C0BB7AFCC5 /* Pods */,
 				5625105C5F6CF0A90AB4CA1A /* Frameworks */,
+				1BB470DC29928D0B7E7FB17D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,8 +164,8 @@
 				D0F177AE1C818A5C00691260 /* Handshake.xcdatamodeld */,
 				D0F177D91C818DA300691260 /* Person.swift */,
 				D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */,
-				EE5837B41C819B7700768863 /* CoreDataHelper.swift */,
-				EE5837B61C819BDA00768863 /* CoreDataStore.swift */,
+				EE5837C01C81A70F00768863 /* CoreDataHelper.swift */,
+				EE5837C21C81A74400768863 /* CoreDataStore.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -374,8 +370,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5837B71C819BDA00768863 /* CoreDataStore.swift in Sources */,
-				EE5837B51C819B7700768863 /* CoreDataHelper.swift in Sources */,
+				EE5837C31C81A74400768863 /* CoreDataStore.swift in Sources */,
+				EE5837C11C81A70F00768863 /* CoreDataHelper.swift in Sources */,
 				D0F177DB1C818DA300691260 /* Person.swift in Sources */,
 				D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */,
 				D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */,
@@ -520,7 +516,7 @@
 		};
 		D0F177D01C818A5D00691260 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E13EBC981322F6FC6CA4C5BC /* Pods-Handshake.debug.xcconfig */;
+			baseConfigurationReference = 2833BF2E21D42269B67926EC /* Pods-Handshake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Handshake/Info.plist;
@@ -532,7 +528,7 @@
 		};
 		D0F177D11C818A5D00691260 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 954C554606652D384032EDC1 /* Pods-Handshake.release.xcconfig */;
+			baseConfigurationReference = 55B3C84C7F9215F65B34C85E /* Pods-Handshake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Handshake/Info.plist;

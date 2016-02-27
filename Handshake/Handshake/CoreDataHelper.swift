@@ -26,7 +26,7 @@ class CoreDataHelper: NSObject{
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-
+    
     lazy var managedObjectContext: NSManagedObjectContext = {
         let coordinator = self.store.persistentStoreCoordinator
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)

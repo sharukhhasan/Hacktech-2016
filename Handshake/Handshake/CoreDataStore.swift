@@ -10,8 +10,8 @@ import Foundation
 import CoreData
 
 class CoreDataStore: NSObject{
-    let storeName = "HandshakeStore"
-    let storeFilename = "HandshakeStore.sqlite"
+    let storeName = "Handshake"
+    let storeFilename = "Handshake.sqlite"
     
     lazy var applicationDocumentsDirectory: NSURL = {
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
@@ -27,10 +27,10 @@ class CoreDataStore: NSObject{
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(self.storeFilename)
         var failureReason = "There was an error creating or loading the application's saved data."
-        
         do {
             try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
         } catch {
+            // Report any error we got.
             var dict = [String: AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason

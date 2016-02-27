@@ -23,5 +23,4 @@ extension Person {
     @NSManaged var linkedinUrl: String?
     @NSManaged var dateOfBirth: String?
     
-
 }
