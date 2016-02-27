@@ -41,7 +41,15 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
     func sendPerson(person: Person, inside context: NSManagedObjectContext) {
         self.context = context
 
-        guard let info = NSDictionary(dictionary: PGNetworkHandler().dataFromObject(person, mapping: mapping)) as? [String : String] else {
+        let properties = PGNetworkHandler().dataFromObject(person, mapping: mapping)
+
+        for element in properties {
+            if !(element.value is String) {
+                properties.removeObjectForKey(element.key)
+            }
+        }
+
+        guard let info = NSDictionary(dictionary: properties) as? [String : String] else {
             print("Person contains non-string attributes.")
             return
         }
