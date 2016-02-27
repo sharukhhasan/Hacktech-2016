@@ -13,13 +13,15 @@ import UIView_Shake
 import ChameleonFramework
 import QuartzCore
 import CoreGraphics
+import BubbleTransition
 
-class MainViewController: UIViewController, ShakeHandlerDelegate {
+class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
 
+    let transition = BubbleTransition()
 
     var shakeHandler: ShakeHandler!
     var receivedPerson: Person?
@@ -59,11 +61,29 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
             let destinationViewController = segue.destinationViewController as! ConfirmViewController
             destinationViewController.person = receivedPerson
             destinationViewController.context = context
+            destinationViewController.transitioningDelegate = self
+            destinationViewController.modalPresentationStyle = .Custom
             subtitleLabel.text = "Waiting for handshake..."
         } else if segue.identifier == "PastSegue" {
             let destinationViewController = segue.destinationViewController as! TableViewController
             destinationViewController.context = context
         }
+    }
+
+    // MARK: UIViewControllerTransitioningDelegate
+
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Present
+        transition.startingPoint = subtitleLabel.center
+        transition.bubbleColor = UIColor.blueColor()
+        return transition
+    }
+
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Dismiss
+        transition.startingPoint = subtitleLabel.center
+        transition.bubbleColor = UIColor.blueColor()
+        return transition
     }
 
     // MARK: Motion

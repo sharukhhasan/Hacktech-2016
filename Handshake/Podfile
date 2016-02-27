@@ -10,6 +10,7 @@ pod 'MGSwipeTableCell'
 pod 'Persei', '~> 2.0.1'
 pod 'UIView+Shake'
 pod 'ChameleonFramework/Swift'
+pod 'BubbleTransition'
 
 end
 
