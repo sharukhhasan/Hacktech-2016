@@ -52,7 +52,18 @@ class ConfirmViewController: UIViewController {
             profileImageView.setImageWithURL(url)
         }
 
-        view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
+        view.backgroundColor = UIColor.flatSkyBlueColor()
+
+        confirmButton.layer.masksToBounds = true
+        confirmButton.layer.cornerRadius = min(confirmButton.bounds.size.height, confirmButton.bounds.size.width) / 2
+        confirmButton.backgroundColor = UIColor.flatGreenColor()
+        cancelButton.layer.masksToBounds = true
+        cancelButton.layer.cornerRadius = min(cancelButton.bounds.size.height, cancelButton.bounds.size.width) / 2
+        cancelButton.backgroundColor = UIColor.flatRedColor()
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = min(profileImageView.bounds.size.height, profileImageView.bounds.size.width) / 2
+        profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        profileImageView.layer.borderWidth = 4
     }
 
     @IBAction func confirmButtonClicked(sender: AnyObject) {

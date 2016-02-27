@@ -14,13 +14,14 @@ import ChameleonFramework
 import QuartzCore
 import CoreGraphics
 import BubbleTransition
+import NVActivityIndicatorView
 
 class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-
+    @IBOutlet weak var indicatorView: NVActivityIndicatorView!
     let transition = BubbleTransition()
 
     var shakeHandler: ShakeHandler!
@@ -54,6 +55,8 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
         }
 
         view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
+        indicatorView.type = .BallScaleMultiple
+        indicatorView.color = UIColor.whiteColor()
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -64,6 +67,7 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
             destinationViewController.transitioningDelegate = self
             destinationViewController.modalPresentationStyle = .Custom
             subtitleLabel.text = "Waiting for handshake..."
+            indicatorView.stopAnimation()
         } else if segue.identifier == "PastSegue" {
             let destinationViewController = segue.destinationViewController as! TableViewController
             destinationViewController.context = context
@@ -74,15 +78,15 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
 
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .Present
-        transition.startingPoint = subtitleLabel.center
-        transition.bubbleColor = UIColor.blueColor()
+        transition.startingPoint = indicatorView.center
+        transition.bubbleColor = UIColor.flatSkyBlueColor()
         return transition
     }
 
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .Dismiss
-        transition.startingPoint = subtitleLabel.center
-        transition.bubbleColor = UIColor.blueColor()
+        transition.startingPoint = indicatorView.center
+        transition.bubbleColor = UIColor.flatSkyBlueColor()
         return transition
     }
 
@@ -96,6 +100,7 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
                 }
                 self.subtitleLabel.text = "Searching for people..."
                 self.shakeHandler.send()
+                self.indicatorView.startAnimation()
             }
         }
     }
@@ -128,7 +133,8 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
     }
     
     func shakeTimeout() {
-        subtitleLabel.text = "Searching for people..."
+        subtitleLabel.text = "Waiting for handshake..."
+        indicatorView.stopAnimation()
     }
 
 }
