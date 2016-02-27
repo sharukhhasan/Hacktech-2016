@@ -5,6 +5,7 @@ target 'Handshake' do
 
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
+pod 'PGMappingKit'
 
 end
 
