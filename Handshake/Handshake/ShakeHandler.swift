@@ -6,6 +6,13 @@
 //  Copyright © 2016 TintPoint. All rights reserved.
 //
 
+// MARK: ShakeHandlerDelegate
+
+func receivedPerson(person: Person) {
+    print(person) // This is the person object received.
+}
+
+
 import Foundation
 import MultipeerConnectivity
 import PGMappingKit
@@ -26,6 +33,10 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
 
     var advertiser: MCNearbyServiceAdvertiser?
     var browser: MCNearbyServiceBrowser?
+
+    init(delegate: ShakeHandlerDelegate) {
+        self.delegate = delegate
+    }
 
     func sendPerson(person: Person, inside context: NSManagedObjectContext) {
         self.context = context
