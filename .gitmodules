@@ -1,0 +1,3 @@
+[submodule "Handshake/Persei"]
+	path = Handshake/Persei
+	url = https://github.com/yalantis/Persei.git

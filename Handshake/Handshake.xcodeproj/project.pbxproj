@@ -22,6 +22,7 @@
 		EE5837C11C81A70F00768863 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837C01C81A70F00768863 /* CoreDataHelper.swift */; };
 		EE5837C31C81A74400768863 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837C21C81A74400768863 /* CoreDataStore.swift */; };
 		EEBD03D11C81ADCC00FBCFAA /* ShakeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBD03D01C81ADCC00FBCFAA /* ShakeHandler.swift */; };
+		EEBD03D51C81CD0700FBCFAA /* PersonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBD03D41C81CD0700FBCFAA /* PersonTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		EE5837C01C81A70F00768863 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		EE5837C21C81A74400768863 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		EEBD03D01C81ADCC00FBCFAA /* ShakeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeHandler.swift; sourceTree = "<group>"; };
+		EEBD03D41C81CD0700FBCFAA /* PersonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F177A91C818A5C00691260 /* MainViewController.swift */,
+				EEBD03D41C81CD0700FBCFAA /* PersonTableViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				EE5837C11C81A70F00768863 /* CoreDataHelper.swift in Sources */,
 				D0F177DB1C818DA300691260 /* Person.swift in Sources */,
 				D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */,
+				EEBD03D51C81CD0700FBCFAA /* PersonTableViewController.swift in Sources */,
 				D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */,
 				D0B980361C81941A00DACBCF /* (null) in Sources */,
 				EEBD03D11C81ADCC00FBCFAA /* ShakeHandler.swift in Sources */,
