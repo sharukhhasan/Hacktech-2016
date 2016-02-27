@@ -145,11 +145,14 @@
 			isa = PBXGroup;
 			children = (
 				D0F177A71C818A5C00691260 /* AppDelegate.swift */,
+				B618EB0C1C81C4FA0016D8AB /* SwipeRightSegue.swift */,
+				B618EB0E1C81C7CF0016D8AB /* SwipeLeftSegue.swift */,
 				D0F177DE1C818DE400691260 /* ViewController */,
 				D0F177DD1C818DDA00691260 /* View */,
 				D0B980371C81A8D800DACBCF /* Connect */,
 				D0F177DC1C818DCB00691260 /* Data */,
 				D0F177B61C818A5C00691260 /* Info.plist */,
+				B618EAFF1C81970C0016D8AB /* Bridging-Header.h */,
 			);
 			path = Handshake;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F177AB1C818A5C00691260 /* Main.storyboard */,
+				B618EB061C81AAF40016D8AB /* defaultprofilepic.jpeg */,
 				D0F177B11C818A5C00691260 /* Assets.xcassets */,
 				D0F177B31C818A5C00691260 /* LaunchScreen.storyboard */,
 			);
@@ -197,6 +201,8 @@
 		D0F177DE1C818DE400691260 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B618EB081C81ADD70016D8AB /* ConfirmViewController.swift */,
+				B618EB041C81A4900016D8AB /* LoadingViewController.swift */,
 				D0F177A91C818A5C00691260 /* MainViewController.swift */,
 				EEBD03D41C81CD0700FBCFAA /* PersonTableViewController.swift */,
 			);
@@ -310,6 +316,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B618EB011C81A0280016D8AB /* shake.png in Resources */,
+				B618EB071C81AAF40016D8AB /* defaultprofilepic.jpeg in Resources */,
 				D0F177B51C818A5C00691260 /* LaunchScreen.storyboard in Resources */,
 				D0F177B21C818A5C00691260 /* Assets.xcassets in Resources */,
 				D0F177AD1C818A5C00691260 /* Main.storyboard in Resources */,
@@ -394,6 +402,8 @@
 				D0B980361C81941A00DACBCF /* (null) in Sources */,
 				EEBD03D11C81ADCC00FBCFAA /* ShakeHandler.swift in Sources */,
 				D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */,
+				B618EB0D1C81C4FA0016D8AB /* SwipeRightSegue.swift in Sources */,
+				B618EB0B1C81AF130016D8AB /* TableViewController.swift in Sources */,
 				D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,7 +498,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.handshake;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Handshake/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -526,7 +538,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.handshake;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Handshake/Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
