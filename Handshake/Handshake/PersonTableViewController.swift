@@ -10,7 +10,9 @@ import Foundation
 import CoreData
 import UIKit
 
-class PersonTableViewController: UITableViewController, NSFetchedResultsControllerDelegate{
+class PersonTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+
+    @IBOutlet weak var tableView: UITableView!
     
     var fetchedResultsController: NSFetchedResultsController{
         // Initialize Fetch Request
@@ -42,21 +44,21 @@ class PersonTableViewController: UITableViewController, NSFetchedResultsControll
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         guard let sectionCount = fetchedResultsController.sections?.count else {
             return 0
         }
         return sectionCount
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let sectionData = fetchedResultsController.sections?[section] else {
             return 0
         }
         return sectionData.numberOfObjects
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let person = fetchedResultsController.objectAtIndexPath(indexPath) as! Person
         
         let cell = tableView.dequeueReusableCellWithIdentifier("personCell")!
@@ -68,7 +70,7 @@ class PersonTableViewController: UITableViewController, NSFetchedResultsControll
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     

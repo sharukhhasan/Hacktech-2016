@@ -19,6 +19,7 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
 
     var shakeHandler: ShakeHandler!
     var receivedPerson: Person?
+    var context: NSManagedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,11 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
         shakeHandler = ShakeHandler(delegate: self)
 
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let person = delegate.managedObjectContext.save(["firstName": "Justin", "lastName": "Jia", "email": "justin.jia@icloud.com"], description: shakeHandler!.mapping, error: nil) as! Person
+        context = delegate.managedObjectContext
 
-        shakeHandler.prepareToSend(person, inside: delegate.managedObjectContext)
+        let person = context.save(["firstName": "Justin", "lastName": "Jia", "email": "justin.jia@icloud.com"], description: shakeHandler!.mapping, error: nil) as! Person
+
+        shakeHandler.prepareToSend(person, inside: context)
 
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
@@ -50,8 +53,10 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
         if segue.identifier == "ConfirmSegue" {
             let destinationViewController = segue.destinationViewController as! ConfirmViewController
             destinationViewController.person = receivedPerson
+            destinationViewController.context = context
         } else if segue.identifier == "PastSegue" {
-
+            let destinationViewController = segue.destinationViewController as! TableViewController
+            destinationViewController.context = context
         }
     }
 

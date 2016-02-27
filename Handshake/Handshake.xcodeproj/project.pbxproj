@@ -205,8 +205,8 @@
 			children = (
 				EE44F76B1C820FC500314215 /* SwipeLeftSegue.swift */,
 				EE44F7711C820FCE00314215 /* ConfirmViewController.swift */,
-				EE44F7691C820FB300314215 /* TableViewController.swift */,
 				D0F177A91C818A5C00691260 /* MainViewController.swift */,
+				EE44F7691C820FB300314215 /* TableViewController.swift */,
 				EEBD03D41C81CD0700FBCFAA /* PersonTableViewController.swift */,
 			);
 			name = ViewController;
