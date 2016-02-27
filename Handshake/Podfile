@@ -6,6 +6,8 @@ target 'Handshake' do
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'PGMappingKit'
+pod 'MGSwipeTableCell'
+pod 'Persei', '~> 2.0.1'
 
 end
 

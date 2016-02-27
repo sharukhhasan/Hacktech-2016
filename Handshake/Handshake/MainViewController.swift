@@ -37,8 +37,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         do {
+            print("hello")
             try self.fetchedResultsController.performFetch()
         } catch {
+            print("shit")
             let fetchError = error as NSError
             print("\(fetchError), \(fetchError.userInfo)")
         }
@@ -56,13 +58,23 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print(person) // This is the person object received.
     }
     
-    func tableView(tableview: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let sectionData = fetchedResultsController.sections?[section] else {
+            return 0
+        }
+        return sectionData.numberOfObjects
     }
     
-    func tableView(tableview: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        //let cell = tableView.dequeueReusableCellWithIdentifier(ReuseIdentifierToDoCell, forIndexPath: indexPath) as! ToDoCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let person = fetchedResultsController.objectAtIndexPath(indexPath) as! Person
         
+        let cell = tableView.dequeueReusableCellWithIdentifier("personCell")!
+        
+        let firstName = String(person.firstName!)
+        let lastName = String(person.lastName!)
+        let fullName = firstName + " " + lastName
+        cell.textLabel?.text = fullName
+        return cell
     }
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
@@ -88,7 +100,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         case .Update:
             if let indexPath = indexPath {
                 let cell = tableView.cellForRowAtIndexPath(indexPath) as! Person
-                configureCell(cell, atIndexPath: indexPath)
+                //configureCell(cell, atIndexPath: indexPath)
             }
             break;
         case .Move:

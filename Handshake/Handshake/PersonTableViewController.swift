@@ -10,11 +10,26 @@ import Foundation
 import CoreData
 import UIKit
 
-/*class PersonTableViewController: UITableViewController, NSFetchedResultsControllerDelegate{
+class PersonTableViewController: UITableViewController, NSFetchedResultsControllerDelegate{
     
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    
-    var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
+    var fetchedResultsController: NSFetchedResultsController{
+        // Initialize Fetch Request
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        
+        // Add Sort Descriptors
+        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        // Initialize Fetched Results Controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: delegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        fetchedResultsController.delegate = self
+        
+        // Configure Fetched Results Controller
+        return fetchedResultsController
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,21 +72,6 @@ import UIKit
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        switch editingStyle {
-        case .Delete:
-            let person = fetchedResultsController.objectAtIndexPath(indexPath) as! Person
-            context.deleteObject(person)
-            
-            do {
-                try context.save()
-            } catch let error as NSError {
-                print("Error saving context after delete: \(error.localizedDescription)")
-            }
-        default:break
-        }
-    }
-    
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         tableView.beginUpdates()
     }
@@ -100,5 +100,5 @@ import UIKit
         }
     }
     
-}*/
+}
 
