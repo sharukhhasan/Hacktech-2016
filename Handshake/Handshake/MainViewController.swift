@@ -10,6 +10,9 @@ import UIKit
 import Foundation
 import CoreData
 import UIView_Shake
+import ChameleonFramework
+import QuartzCore
+import CoreGraphics
 
 class MainViewController: UIViewController, ShakeHandlerDelegate {
 
@@ -48,6 +51,7 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
             titleLabel.text = "Welcome to Handshake!"
         }
 
+        view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

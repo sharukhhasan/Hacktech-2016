@@ -9,6 +9,9 @@
 import UIKit
 import AFNetworking
 import CoreData
+import ChameleonFramework
+import QuartzCore
+import CoreGraphics
 
 class ConfirmViewController: UIViewController {
 
@@ -35,8 +38,10 @@ class ConfirmViewController: UIViewController {
         if let url = NSURL(string: "https://i.imgur.com/Jvh1OQm.jpg") {
             profileImageView.setImageWithURL(url)
         }
+
+        view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
     }
-    
+
     @IBAction func confirmButtonClicked(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }

@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 import PGMappingKit
+import ChameleonFramework
+import QuartzCore
+import CoreGraphics
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -30,6 +33,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         people = try! context?.objectsWithType("Person") as? [Person]
 
         tableView.reloadData()
+
+        view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
     }
 
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {

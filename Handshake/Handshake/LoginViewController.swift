@@ -7,7 +7,12 @@
 //
 
 import UIKit
+import ChameleonFramework
+import QuartzCore
+import CoreGraphics
 
 class LoginViewController: UIViewController {
-
+    override func viewDidLoad() {
+        view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
+    }
 }
