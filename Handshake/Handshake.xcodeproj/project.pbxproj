@@ -15,6 +15,8 @@
 		D0F177B51C818A5C00691260 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F177B31C818A5C00691260 /* LaunchScreen.storyboard */; };
 		D0F177C01C818A5D00691260 /* HandshakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177BF1C818A5D00691260 /* HandshakeTests.swift */; };
 		D0F177CB1C818A5D00691260 /* HandshakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177CA1C818A5D00691260 /* HandshakeUITests.swift */; };
+		D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */; };
+		D0F177DB1C818DA300691260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D91C818DA300691260 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		D0F177C61C818A5D00691260 /* HandshakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandshakeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F177CA1C818A5D00691260 /* HandshakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandshakeUITests.swift; sourceTree = "<group>"; };
 		D0F177CC1C818A5D00691260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0F177D91C818DA300691260 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				D0F177A71C818A5C00691260 /* AppDelegate.swift */,
-				D0F177A91C818A5C00691260 /* ViewController.swift */,
-				D0F177AB1C818A5C00691260 /* Main.storyboard */,
-				D0F177B11C818A5C00691260 /* Assets.xcassets */,
-				D0F177B31C818A5C00691260 /* LaunchScreen.storyboard */,
+				D0F177DE1C818DE400691260 /* ViewController */,
+				D0F177DD1C818DDA00691260 /* View */,
+				D0F177DC1C818DCB00691260 /* Data */,
 				D0F177B61C818A5C00691260 /* Info.plist */,
-				D0F177AE1C818A5C00691260 /* Handshake.xcdatamodeld */,
 			);
 			path = Handshake;
 			sourceTree = "<group>";
@@ -126,6 +128,34 @@
 				D0F177CC1C818A5D00691260 /* Info.plist */,
 			);
 			path = HandshakeUITests;
+			sourceTree = "<group>";
+		};
+		D0F177DC1C818DCB00691260 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D0F177AE1C818A5C00691260 /* Handshake.xcdatamodeld */,
+				D0F177D91C818DA300691260 /* Person.swift */,
+				D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		D0F177DD1C818DDA00691260 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D0F177AB1C818A5C00691260 /* Main.storyboard */,
+				D0F177B11C818A5C00691260 /* Assets.xcassets */,
+				D0F177B31C818A5C00691260 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D0F177DE1C818DE400691260 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D0F177A91C818A5C00691260 /* ViewController.swift */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +289,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F177DB1C818DA300691260 /* Person.swift in Sources */,
+				D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */,
 				D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */,
 				D0F177AA1C818A5C00691260 /* ViewController.swift in Sources */,
 				D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */,
