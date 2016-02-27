@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import CoreData
+import UIView_Shake
 
 class MainViewController: UIViewController, ShakeHandlerDelegate {
 
@@ -65,6 +66,9 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if (motion == .MotionShake) {
             NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+                for subview in self.view.subviews {
+                    subview.shake()
+                }
                 self.subtitleLabel.text = "Searching for people..."
                 self.shakeHandler.send()
             }
