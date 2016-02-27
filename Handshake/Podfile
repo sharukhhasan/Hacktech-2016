@@ -1,0 +1,19 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target 'Handshake' do
+
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
+pod 'PGMappingKit'
+
+end
+
+target 'HandshakeTests' do
+
+end
+
+target 'HandshakeUITests' do
+
+end
+

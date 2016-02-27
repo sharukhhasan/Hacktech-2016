@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF57CCBD7894E2EA55DCC531 /* Pods_Handshake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C535288EE370B036460253A /* Pods_Handshake.framework */; };
 		D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A71C818A5C00691260 /* AppDelegate.swift */; };
 		D0F177AA1C818A5C00691260 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A91C818A5C00691260 /* ViewController.swift */; };
 		D0F177AD1C818A5C00691260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F177AB1C818A5C00691260 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 		D0F177B51C818A5C00691260 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F177B31C818A5C00691260 /* LaunchScreen.storyboard */; };
 		D0F177C01C818A5D00691260 /* HandshakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177BF1C818A5D00691260 /* HandshakeTests.swift */; };
 		D0F177CB1C818A5D00691260 /* HandshakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177CA1C818A5D00691260 /* HandshakeUITests.swift */; };
+		D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */; };
+		D0F177DB1C818DA300691260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D91C818DA300691260 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C535288EE370B036460253A /* Pods_Handshake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Handshake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		954C554606652D384032EDC1 /* Pods-Handshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.release.xcconfig"; sourceTree = "<group>"; };
 		D0F177A41C818A5C00691260 /* Handshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F177A71C818A5C00691260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0F177A91C818A5C00691260 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,9 @@
 		D0F177C61C818A5D00691260 /* HandshakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandshakeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F177CA1C818A5D00691260 /* HandshakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandshakeUITests.swift; sourceTree = "<group>"; };
 		D0F177CC1C818A5D00691260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0F177D91C818DA300691260 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		E13EBC981322F6FC6CA4C5BC /* Pods-Handshake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF57CCBD7894E2EA55DCC531 /* Pods_Handshake.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +85,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41501444347323C0BB7AFCC5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E13EBC981322F6FC6CA4C5BC /* Pods-Handshake.debug.xcconfig */,
+				954C554606652D384032EDC1 /* Pods-Handshake.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5625105C5F6CF0A90AB4CA1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C535288EE370B036460253A /* Pods_Handshake.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D0F1779B1C818A5C00691260 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +109,8 @@
 				D0F177BE1C818A5D00691260 /* HandshakeTests */,
 				D0F177C91C818A5D00691260 /* HandshakeUITests */,
 				D0F177A51C818A5C00691260 /* Products */,
+				41501444347323C0BB7AFCC5 /* Pods */,
+				5625105C5F6CF0A90AB4CA1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,12 +128,10 @@
 			isa = PBXGroup;
 			children = (
 				D0F177A71C818A5C00691260 /* AppDelegate.swift */,
-				D0F177A91C818A5C00691260 /* ViewController.swift */,
-				D0F177AB1C818A5C00691260 /* Main.storyboard */,
-				D0F177B11C818A5C00691260 /* Assets.xcassets */,
-				D0F177B31C818A5C00691260 /* LaunchScreen.storyboard */,
+				D0F177DE1C818DE400691260 /* ViewController */,
+				D0F177DD1C818DDA00691260 /* View */,
+				D0F177DC1C818DCB00691260 /* Data */,
 				D0F177B61C818A5C00691260 /* Info.plist */,
-				D0F177AE1C818A5C00691260 /* Handshake.xcdatamodeld */,
 			);
 			path = Handshake;
 			sourceTree = "<group>";
@@ -128,6 +154,34 @@
 			path = HandshakeUITests;
 			sourceTree = "<group>";
 		};
+		D0F177DC1C818DCB00691260 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D0F177AE1C818A5C00691260 /* Handshake.xcdatamodeld */,
+				D0F177D91C818DA300691260 /* Person.swift */,
+				D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		D0F177DD1C818DDA00691260 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D0F177AB1C818A5C00691260 /* Main.storyboard */,
+				D0F177B11C818A5C00691260 /* Assets.xcassets */,
+				D0F177B31C818A5C00691260 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D0F177DE1C818DE400691260 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D0F177A91C818A5C00691260 /* ViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0F177CF1C818A5D00691260 /* Build configuration list for PBXNativeTarget "Handshake" */;
 			buildPhases = (
+				0972677E3AB5F7444DB505B2 /* Check Pods Manifest.lock */,
 				D0F177A01C818A5C00691260 /* Sources */,
 				D0F177A11C818A5C00691260 /* Frameworks */,
 				D0F177A21C818A5C00691260 /* Resources */,
+				277575C4E6CC34458A863684 /* Embed Pods Frameworks */,
+				36667E7F9715DA86FC4A549B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,11 +311,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0972677E3AB5F7444DB505B2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		277575C4E6CC34458A863684 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Handshake/Pods-Handshake-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36667E7F9715DA86FC4A549B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Handshake/Pods-Handshake-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D0F177A01C818A5C00691260 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F177DB1C818DA300691260 /* Person.swift in Sources */,
+				D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */,
 				D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */,
 				D0F177AA1C818A5C00691260 /* ViewController.swift in Sources */,
 				D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */,
@@ -401,6 +508,7 @@
 		};
 		D0F177D01C818A5D00691260 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E13EBC981322F6FC6CA4C5BC /* Pods-Handshake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Handshake/Info.plist;
@@ -412,6 +520,7 @@
 		};
 		D0F177D11C818A5D00691260 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 954C554606652D384032EDC1 /* Pods-Handshake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Handshake/Info.plist;
@@ -488,6 +597,7 @@
 				D0F177D11C818A5D00691260 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0F177D21C818A5D00691260 /* Build configuration list for PBXNativeTarget "HandshakeTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +606,7 @@
 				D0F177D41C818A5D00691260 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0F177D51C818A5D00691260 /* Build configuration list for PBXNativeTarget "HandshakeUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +615,7 @@
 				D0F177D71C818A5D00691260 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
