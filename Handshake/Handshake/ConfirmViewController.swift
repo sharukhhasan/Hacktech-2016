@@ -26,7 +26,20 @@ class ConfirmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let image = UIImage(named: "check-button-round") {
+            confirmButton.setImage(image, forState: UIControlState.Normal)
+        }
+        if let image = UIImage(named: "check-button-round-clicked") {
+            confirmButton.setImage(image, forState: UIControlState.Highlighted)
+        }
+        if let image = UIImage(named: "cancel-button-round") {
+            cancelButton.setImage(image, forState: UIControlState.Normal)
+        }
+        if let image = UIImage(named: "cancel-button-round-clicked") {
+            cancelButton.setImage(image, forState: UIControlState.Highlighted)
+        }
+        
         if let firstName = person?.firstName, let lastName = person?.lastName {
             titleLabel.text = "You just shook hands with \(firstName) \(lastName)!"
         }
