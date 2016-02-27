@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dsT-1m-UAk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p9d-X7-aHH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -95,14 +95,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Handshake detected!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtW-CY-HkQ">
-                                <rect key="frame" x="170" y="340" width="260" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Handshake detected!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtW-CY-HkQ">
+                                <rect key="frame" x="173" y="378" width="255" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xHc-BG-r0S">
-                                <rect key="frame" x="282" y="368" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xHc-BG-r0S">
+                                <rect key="frame" x="282" y="450" width="37" height="37"/>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="1Nq-Uj-sa9"/>
@@ -150,8 +150,78 @@
             </objects>
             <point key="canvasLocation" x="890" y="887"/>
         </scene>
+        <!--Confirm View Controller-->
+        <scene sceneID="7iz-vS-0lq">
+            <objects>
+                <viewController id="p9d-X7-aHH" customClass="ConfirmViewController" customModule="Handshake" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BQK-Ae-KhP"/>
+                        <viewControllerLayoutGuide type="bottom" id="2tu-sd-Um0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7ey-TM-3PW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You just shook hands with {Name}!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtn-Ri-vo3">
+                                <rect key="frame" x="167" y="154" width="267" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultprofilepic.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="7vl-VB-d5x">
+                                <rect key="frame" x="220" y="210" width="160" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="keJ-zG-whc"/>
+                                    <constraint firstAttribute="height" constant="160" id="lo9-FB-5Po"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff0-ZW-Dxu">
+                                <rect key="frame" x="273" y="446" width="55" height="30"/>
+                                <state key="normal" title="Confirm"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBm-WJ-sZD">
+                                <rect key="frame" x="282" y="469" width="36" height="30"/>
+                                <state key="normal" title="Deny"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.57537708949999999" green="0.7363684801" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ff0-ZW-Dxu" firstAttribute="centerX" secondItem="7ey-TM-3PW" secondAttribute="centerX" id="Cuh-al-qUD"/>
+                            <constraint firstItem="Ff0-ZW-Dxu" firstAttribute="top" secondItem="7vl-VB-d5x" secondAttribute="bottom" constant="35" id="Eb3-TS-Y4L"/>
+                            <constraint firstItem="BBm-WJ-sZD" firstAttribute="centerX" secondItem="7ey-TM-3PW" secondAttribute="centerX" id="F0f-Uv-XlB"/>
+                            <constraint firstItem="Ff0-ZW-Dxu" firstAttribute="centerY" secondItem="7ey-TM-3PW" secondAttribute="centerY" id="FrM-MW-S9m"/>
+                            <constraint firstItem="BBm-WJ-sZD" firstAttribute="top" secondItem="Ff0-ZW-Dxu" secondAttribute="bottom" constant="2" id="GAS-1h-RlN"/>
+                            <constraint firstItem="7vl-VB-d5x" firstAttribute="top" secondItem="Xtn-Ri-vo3" secondAttribute="bottom" constant="35" id="PDI-CP-dbc"/>
+                            <constraint firstItem="7vl-VB-d5x" firstAttribute="centerX" secondItem="7ey-TM-3PW" secondAttribute="centerX" id="Qfv-2y-jL2"/>
+                            <constraint firstItem="BBm-WJ-sZD" firstAttribute="centerX" secondItem="Ff0-ZW-Dxu" secondAttribute="centerX" id="TMa-R5-SBB"/>
+                            <constraint firstItem="BBm-WJ-sZD" firstAttribute="centerX" secondItem="7ey-TM-3PW" secondAttribute="centerX" id="bng-bU-ZIp"/>
+                            <constraint firstItem="BBm-WJ-sZD" firstAttribute="leading" secondItem="Ff0-ZW-Dxu" secondAttribute="trailing" constant="80" id="cOe-1v-ri7"/>
+                            <constraint firstItem="Xtn-Ri-vo3" firstAttribute="top" secondItem="BQK-Ae-KhP" secondAttribute="bottom" constant="134" id="ki7-6Y-XfQ"/>
+                            <constraint firstItem="7vl-VB-d5x" firstAttribute="leading" secondItem="Ff0-ZW-Dxu" secondAttribute="leading" id="lCK-I9-HfV"/>
+                            <constraint firstItem="7vl-VB-d5x" firstAttribute="trailing" secondItem="BBm-WJ-sZD" secondAttribute="trailing" id="ohh-Nh-CYh"/>
+                            <constraint firstItem="Ff0-ZW-Dxu" firstAttribute="baseline" secondItem="BBm-WJ-sZD" secondAttribute="baseline" id="pHO-Ii-DJo"/>
+                            <constraint firstItem="Xtn-Ri-vo3" firstAttribute="centerX" secondItem="7ey-TM-3PW" secondAttribute="centerX" id="wjy-1j-ehA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lCK-I9-HfV"/>
+                                <exclude reference="ohh-Nh-CYh"/>
+                                <exclude reference="FrM-MW-S9m"/>
+                                <exclude reference="pHO-Ii-DJo"/>
+                                <exclude reference="TMa-R5-SBB"/>
+                                <exclude reference="bng-bU-ZIp"/>
+                                <exclude reference="cOe-1v-ri7"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wab-XY-pvd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1578" y="887"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="defaultprofilepic.jpeg" width="102" height="102"/>
         <image name="shake.png" width="400" height="300"/>
     </resources>
 </document>
