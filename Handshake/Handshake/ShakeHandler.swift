@@ -20,9 +20,8 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
 
     let serviceType = "Handshake"
     let peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
-    let personDescription = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "name", remoteIDKey: "name", mapping: ["firstName": "firstName", "lastName": "lastName", "email": "email"])
+    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "name", remoteIDKey: "name", mapping: ["firstName": "firstName", "lastName": "lastName", "email": "email"])
 
-    var timeInterval: NSTimeInterval?
     var context: NSManagedObjectContext?
 
     var advertiser: MCNearbyServiceAdvertiser?
@@ -30,9 +29,13 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
 
     func sendPerson(person: Person, inside context: NSManagedObjectContext) {
         self.context = context
-        timeInterval = NSDate().timeIntervalSince1970
 
-        advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: ["TimeInterval" : String(timeInterval)], serviceType: serviceType)
+        guard let info = NSDictionary(dictionary: PGNetworkHandler().dataFromObject(person, mapping: mapping)) as? [String : String] else {
+            print("Person contains non-string attributes.")
+            return
+        }
+
+        advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: info, serviceType: serviceType)
         browser = MCNearbyServiceBrowser(peer: peerID, serviceType: serviceType)
 
         advertiser?.startAdvertisingPeer()
@@ -49,17 +52,17 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
     }
 
     @objc func advertiser(advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: NSError) {
-        print(error)
+        print("Can't start advertising. \(error)")
     }
 
     // MARK: MCNearbyServiceBrowserDelegate
 
     func browser(browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         var error: NSError?
-        if let person = context?.save(info, description: personDescription, error: &error) as? Person {
+        if let person = context?.save(info, description: mapping, error: &error) as? Person {
             delegate?.receivedPerson(person)
         } else {
-            print(error)
+            print("Can't save received person. \(error)")
         }
         let session: MCSession = MCSession(peer: peerID)
         browser.invitePeer(peerID, toSession: session, withContext: nil, timeout: 10)
@@ -69,7 +72,7 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
     func browser(browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) { }
 
     @objc func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError) {
-        print(error)
+        print("Can't start borwsing. \(error)")
     }
 
 }
