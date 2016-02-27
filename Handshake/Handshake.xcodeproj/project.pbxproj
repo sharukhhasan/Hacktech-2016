@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AF57CCBD7894E2EA55DCC531 /* Pods_Handshake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C535288EE370B036460253A /* Pods_Handshake.framework */; };
+		B618EB011C81A0280016D8AB /* shake.png in Resources */ = {isa = PBXBuildFile; fileRef = B618EB001C81A0280016D8AB /* shake.png */; };
+		B618EB031C81A2B70016D8AB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618EB021C81A2B70016D8AB /* WelcomeViewController.swift */; };
 		D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A71C818A5C00691260 /* AppDelegate.swift */; };
 		D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A91C818A5C00691260 /* MainViewController.swift */; };
 		D0F177AD1C818A5C00691260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F177AB1C818A5C00691260 /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 		6C535288EE370B036460253A /* Pods_Handshake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Handshake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		954C554606652D384032EDC1 /* Pods-Handshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.release.xcconfig"; sourceTree = "<group>"; };
 		B618EAFF1C81970C0016D8AB /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		B618EB001C81A0280016D8AB /* shake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shake.png; path = Handshake/shake.png; sourceTree = "<group>"; };
+		B618EB021C81A2B70016D8AB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		D0F177A41C818A5C00691260 /* Handshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F177A71C818A5C00691260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0F177A91C818A5C00691260 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 				D0F177BE1C818A5D00691260 /* HandshakeTests */,
 				D0F177C91C818A5D00691260 /* HandshakeUITests */,
 				D0F177A51C818A5C00691260 /* Products */,
+				B618EB001C81A0280016D8AB /* shake.png */,
 				41501444347323C0BB7AFCC5 /* Pods */,
 				5625105C5F6CF0A90AB4CA1A /* Frameworks */,
 			);
@@ -180,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F177A91C818A5C00691260 /* MainViewController.swift */,
+				B618EB021C81A2B70016D8AB /* WelcomeViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -291,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B618EB011C81A0280016D8AB /* shake.png in Resources */,
 				D0F177B51C818A5C00691260 /* LaunchScreen.storyboard in Resources */,
 				D0F177B21C818A5C00691260 /* Assets.xcassets in Resources */,
 				D0F177AD1C818A5C00691260 /* Main.storyboard in Resources */,
@@ -369,6 +376,7 @@
 				D0F177DB1C818DA300691260 /* Person.swift in Sources */,
 				D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */,
 				D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */,
+				B618EB031C81A2B70016D8AB /* WelcomeViewController.swift in Sources */,
 				D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */,
 				D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */,
 			);
