@@ -21,7 +21,6 @@
 		D0F177DB1C818DA300691260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D91C818DA300691260 /* Person.swift */; };
 		EE44F76A1C820FB300314215 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F7691C820FB300314215 /* TableViewController.swift */; };
 		EE44F76E1C820FC500314215 /* SwipeLeftSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F76B1C820FC500314215 /* SwipeLeftSegue.swift */; };
-		EE44F76F1C820FC500314215 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F76C1C820FC500314215 /* WelcomeViewController.swift */; };
 		EE44F7721C820FCE00314215 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F7711C820FCE00314215 /* ConfirmViewController.swift */; };
 		EE5837C11C81A70F00768863 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837C01C81A70F00768863 /* CoreDataHelper.swift */; };
 		EE5837C31C81A74400768863 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837C21C81A74400768863 /* CoreDataStore.swift */; };
@@ -68,7 +67,6 @@
 		D0F177D91C818DA300691260 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		EE44F7691C820FB300314215 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EE44F76B1C820FC500314215 /* SwipeLeftSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeLeftSegue.swift; sourceTree = "<group>"; };
-		EE44F76C1C820FC500314215 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		EE44F7711C820FCE00314215 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		EE5837C01C81A70F00768863 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		EE5837C21C81A74400768863 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			children = (
 				EE44F76B1C820FC500314215 /* SwipeLeftSegue.swift */,
 				EE44F7711C820FCE00314215 /* ConfirmViewController.swift */,
-				EE44F76C1C820FC500314215 /* WelcomeViewController.swift */,
 				EE44F7691C820FB300314215 /* TableViewController.swift */,
 				D0F177A91C818A5C00691260 /* MainViewController.swift */,
 				EEBD03D41C81CD0700FBCFAA /* PersonTableViewController.swift */,
@@ -404,7 +401,6 @@
 				D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */,
 				EEBD03D51C81CD0700FBCFAA /* PersonTableViewController.swift in Sources */,
 				D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */,
-				EE44F76F1C820FC500314215 /* WelcomeViewController.swift in Sources */,
 				EE44F76A1C820FB300314215 /* TableViewController.swift in Sources */,
 				D0B980361C81941A00DACBCF /* (null) in Sources */,
 				EEBD03D11C81ADCC00FBCFAA /* ShakeHandler.swift in Sources */,

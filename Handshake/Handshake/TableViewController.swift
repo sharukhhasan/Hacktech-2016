@@ -10,8 +10,8 @@ import UIKit
 import CoreData
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
-    @IBOutlet var tableView: UITableView!
-    
+    @IBOutlet weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
@@ -32,17 +32,16 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.reloadData()
 
     }
-    
+
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.Right:
-                print("Swiped right")
-                performSegueWithIdentifier("tableToShakeRight", sender: nil)
+                dismissViewControllerAnimated(true, completion: nil)
                 break
+
             case UISwipeGestureRecognizerDirection.Left:
-                print("Swiped left")
-                performSegueWithIdentifier("tableToShakeLeft", sender: nil)
+                dismissViewControllerAnimated(true, completion: nil)
                 break
             default:
                 break
