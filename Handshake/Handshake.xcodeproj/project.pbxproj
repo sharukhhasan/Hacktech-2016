@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AF57CCBD7894E2EA55DCC531 /* Pods_Handshake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C535288EE370B036460253A /* Pods_Handshake.framework */; };
+		D0B980361C81941A00DACBCF /* ShakeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B980351C81941A00DACBCF /* ShakeHandler.swift */; };
 		D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A71C818A5C00691260 /* AppDelegate.swift */; };
 		D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A91C818A5C00691260 /* MainViewController.swift */; };
 		D0F177AD1C818A5C00691260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F177AB1C818A5C00691260 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		6C535288EE370B036460253A /* Pods_Handshake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Handshake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		954C554606652D384032EDC1 /* Pods-Handshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.release.xcconfig"; sourceTree = "<group>"; };
+		D0B980351C81941A00DACBCF /* ShakeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeHandler.swift; sourceTree = "<group>"; };
 		D0F177A41C818A5C00691260 /* Handshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F177A71C818A5C00691260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0F177A91C818A5C00691260 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				D0F177A71C818A5C00691260 /* AppDelegate.swift */,
 				D0F177DE1C818DE400691260 /* ViewController */,
 				D0F177DD1C818DDA00691260 /* View */,
+				D0B980351C81941A00DACBCF /* ShakeHandler.swift */,
 				D0F177DC1C818DCB00691260 /* Data */,
 				D0F177B61C818A5C00691260 /* Info.plist */,
 			);
@@ -367,6 +370,7 @@
 				D0F177DB1C818DA300691260 /* Person.swift in Sources */,
 				D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */,
 				D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */,
+				D0B980361C81941A00DACBCF /* ShakeHandler.swift in Sources */,
 				D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */,
 				D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */,
 			);
