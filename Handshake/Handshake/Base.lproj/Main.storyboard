@@ -89,11 +89,30 @@
                         <outlet property="titleLabel" destination="hDw-G2-GIU" id="z0P-tr-fuR"/>
                         <segue destination="aCK-MH-MWT" kind="presentation" identifier="PastSegue" customClass="SwipeLeftSegue" customModule="Handshake" customModuleProvider="target" id="Qvu-hc-8co"/>
                         <segue destination="p9d-X7-aHH" kind="presentation" identifier="ConfirmSegue" id="n3x-Ts-2JL"/>
+                        <segue destination="gHk-fC-SO0" kind="presentation" identifier="LoginSegue" id="22a-73-5yr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="282" y="331"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="bY0-EN-PXA">
+            <objects>
+                <viewController id="gHk-fC-SO0" customClass="LoginViewController" customModule="Handshake" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Uv-ch-DQb"/>
+                        <viewControllerLayoutGuide type="bottom" id="afj-EK-aXU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZoJ-Or-gYv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OcI-SQ-W4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297" y="-423"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="uVl-mh-BUE">

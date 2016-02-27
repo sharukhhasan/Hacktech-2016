@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AF57CCBD7894E2EA55DCC531 /* Pods_Handshake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C535288EE370B036460253A /* Pods_Handshake.framework */; };
 		D0B980361C81941A00DACBCF /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D0E620EF1C82335A00CCDB12 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E620EE1C82335A00CCDB12 /* LoginViewController.swift */; };
 		D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A71C818A5C00691260 /* AppDelegate.swift */; };
 		D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A91C818A5C00691260 /* MainViewController.swift */; };
 		D0F177AD1C818A5C00691260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F177AB1C818A5C00691260 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		2833BF2E21D42269B67926EC /* Pods-Handshake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.debug.xcconfig"; sourceTree = "<group>"; };
 		55B3C84C7F9215F65B34C85E /* Pods-Handshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.release.xcconfig"; sourceTree = "<group>"; };
 		6C535288EE370B036460253A /* Pods_Handshake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Handshake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0E620EE1C82335A00CCDB12 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0F177A41C818A5C00691260 /* Handshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F177A71C818A5C00691260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0F177A91C818A5C00691260 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				D0F177A91C818A5C00691260 /* MainViewController.swift */,
 				EE44F7691C820FB300314215 /* TableViewController.swift */,
 				EEBD03D41C81CD0700FBCFAA /* PersonTableViewController.swift */,
+				D0E620EE1C82335A00CCDB12 /* LoginViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E620EF1C82335A00CCDB12 /* LoginViewController.swift in Sources */,
 				EE44F7721C820FCE00314215 /* ConfirmViewController.swift in Sources */,
 				EE5837C31C81A74400768863 /* CoreDataStore.swift in Sources */,
 				EE5837C11C81A70F00768863 /* CoreDataHelper.swift in Sources */,

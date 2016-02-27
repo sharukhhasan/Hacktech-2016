@@ -26,23 +26,15 @@ class ConfirmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //TODO: replace {{Name}} with the name of the user you just shook hands with
 
-        titleLabel.text = "You just shook hands with \(person?.firstName!) \(person?.lastName!) !"
-        
-        //TODO: replace this url with the profile pic link for the other user. :)
-//        let urlString = "https://trip101.com/assets/default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg"
+        if let firstName = person?.firstName, let lastName = person?.lastName {
+            titleLabel.text = "You just shook hands with \(firstName) \(lastName)!"
+        }
 
-//        let imageURL: NSURL = NSURL(string: urlString)!
-
-//        profileImageView.image
-
+        // TODO: replace this url with the profile pic link for the other user. :)
     }
     
     @IBAction func confirmButtonClicked(sender: AnyObject) {
-        //Shake was successful. Confirm the data saving and then 
-        //segue to the shaking screen again.
         dismissViewControllerAnimated(true, completion: nil)
     }
     
