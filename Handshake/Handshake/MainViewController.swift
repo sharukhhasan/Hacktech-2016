@@ -127,7 +127,9 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
         performSegueWithIdentifier("ConfirmSegue", sender: self)
     }
     
-    
+    func shakeTimeout() {
+        subtitleLabel.text = "Searching for people..."
+    }
 
 }
 
