@@ -3,6 +3,9 @@ use_frameworks!
 
 target 'Handshake' do
 
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
+
 end
 
 target 'HandshakeTests' do
