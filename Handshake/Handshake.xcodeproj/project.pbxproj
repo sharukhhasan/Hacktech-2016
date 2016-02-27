@@ -13,6 +13,7 @@
 		B618EB051C81A4900016D8AB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618EB041C81A4900016D8AB /* LoadingViewController.swift */; };
 		B618EB071C81AAF40016D8AB /* defaultprofilepic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B618EB061C81AAF40016D8AB /* defaultprofilepic.jpeg */; };
 		B618EB091C81ADD70016D8AB /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618EB081C81ADD70016D8AB /* ConfirmViewController.swift */; };
+		B618EB0B1C81AF130016D8AB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618EB0A1C81AF130016D8AB /* TableViewController.swift */; };
 		D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A71C818A5C00691260 /* AppDelegate.swift */; };
 		D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A91C818A5C00691260 /* MainViewController.swift */; };
 		D0F177AD1C818A5C00691260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F177AB1C818A5C00691260 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		B618EB041C81A4900016D8AB /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		B618EB061C81AAF40016D8AB /* defaultprofilepic.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultprofilepic.jpeg; sourceTree = "<group>"; };
 		B618EB081C81ADD70016D8AB /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		B618EB0A1C81AF130016D8AB /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D0F177A41C818A5C00691260 /* Handshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F177A71C818A5C00691260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0F177A91C818A5C00691260 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				B618EB041C81A4900016D8AB /* LoadingViewController.swift */,
 				D0F177A91C818A5C00691260 /* MainViewController.swift */,
 				B618EB021C81A2B70016D8AB /* WelcomeViewController.swift */,
+				B618EB0A1C81AF130016D8AB /* TableViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */,
 				B618EB031C81A2B70016D8AB /* WelcomeViewController.swift in Sources */,
 				D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */,
+				B618EB0B1C81AF130016D8AB /* TableViewController.swift in Sources */,
 				D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
