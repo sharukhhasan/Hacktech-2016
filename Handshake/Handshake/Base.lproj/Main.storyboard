@@ -85,9 +85,10 @@
                     </view>
                     <connections>
                         <outlet property="profileImageView" destination="edm-fC-Bmv" id="eXV-Bf-cd9"/>
+                        <outlet property="subtitleLabel" destination="hIq-q7-YOS" id="zOg-Gb-Ef5"/>
                         <outlet property="titleLabel" destination="hDw-G2-GIU" id="z0P-tr-fuR"/>
                         <segue destination="aCK-MH-MWT" kind="presentation" identifier="PastSegue" customClass="SwipeLeftSegue" customModule="Handshake" customModuleProvider="target" id="Qvu-hc-8co"/>
-                        <segue destination="p9d-X7-aHH" kind="presentation" id="n3x-Ts-2JL"/>
+                        <segue destination="p9d-X7-aHH" kind="presentation" identifier="ConfirmSegue" id="n3x-Ts-2JL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -223,8 +224,8 @@
                     <connections>
                         <outlet property="cancelButton" destination="BBm-WJ-sZD" id="bRj-dN-Msc"/>
                         <outlet property="confirmButton" destination="Ff0-ZW-Dxu" id="dEj-LW-BtG"/>
-                        <outlet property="nameLabel" destination="Xtn-Ri-vo3" id="2RY-1u-G6N"/>
-                        <outlet property="profilePic" destination="7vl-VB-d5x" id="hkv-w3-KUp"/>
+                        <outlet property="profileImageView" destination="7vl-VB-d5x" id="hmg-wB-Elh"/>
+                        <outlet property="titleLabel" destination="Xtn-Ri-vo3" id="G0u-MN-N4h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wab-XY-pvd" userLabel="First Responder" sceneMemberID="firstResponder"/>

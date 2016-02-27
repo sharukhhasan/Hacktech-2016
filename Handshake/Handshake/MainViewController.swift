@@ -14,15 +14,21 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+
+
+    var shakeHandler: ShakeHandler!
+    var receivedPerson: Person?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let shakeHandler = ShakeHandler(delegate: self)
+
+        shakeHandler = ShakeHandler(delegate: self)
+
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let person = delegate.managedObjectContext.save(["firstName": "Justin", "lastName": "Jia", "email": "justin.jia@icloud.com"], description: shakeHandler.mapping, error: nil) as! Person
-    
-        shakeHandler.sendPerson(person, inside: delegate.managedObjectContext)
+        let person = delegate.managedObjectContext.save(["firstName": "Justin", "lastName": "Jia", "email": "justin.jia@icloud.com"], description: shakeHandler!.mapping, error: nil) as! Person
+
+        shakeHandler.prepareToSend(person, inside: delegate.managedObjectContext)
 
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
@@ -37,13 +43,26 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
         } else {
             titleLabel.text = "Welcome to Handshake!"
         }
+
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ConfirmSegue" {
+            let destinationViewController = segue.destinationViewController as! ConfirmViewController
+            destinationViewController.person = receivedPerson
+        } else if segue.identifier == "PastSegue" {
+
+        }
     }
 
     // MARK: Motion
 
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if (motion == .MotionShake) {
-
+            NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+                self.subtitleLabel.text = "Searching for people..."
+                self.shakeHandler.send()
+            }
         }
     }
 
@@ -54,11 +73,11 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.Right:
                 print("Swiped right")
-                performSegueWithIdentifier("PastSegue", sender: nil)
+                performSegueWithIdentifier("PastSegue", sender: self)
                 break
             case UISwipeGestureRecognizerDirection.Left:
                 print("Swiped left")
-                performSegueWithIdentifier("PastSegue", sender: nil)
+                performSegueWithIdentifier("PastSegue", sender: self)
                 break
             default:
                 break
@@ -70,7 +89,8 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
     // MARK: ShakeHandlerDelegate
 
     func receivedPerson(person: Person) {
-        print(person) // This is the person object received.
+        receivedPerson = person
+        performSegueWithIdentifier("ConfirmSegue", sender: self)
     }
     
     
