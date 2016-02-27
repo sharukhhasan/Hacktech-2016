@@ -24,12 +24,16 @@ PODS:
     - Bolts (~> 1.5)
   - FBSDKLoginKit (4.10.0):
     - FBSDKCoreKit
+  - MGSwipeTableCell (1.5.3)
+  - Persei (2.0.1)
   - PGMappingKit (1.0):
     - AFNetworking (~> 3.0)
 
 DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
+  - MGSwipeTableCell
+  - Persei (~> 2.0.1)
   - PGMappingKit
 
 SPEC CHECKSUMS:
@@ -37,6 +41,8 @@ SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   FBSDKCoreKit: 13bec8373fb3af94d44daf2aa1e0958687897fbd
   FBSDKLoginKit: d3d4a2e9d31954deb00bfea964167a05ca1ea976
+  MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
+  Persei: 0cac86b27592be808823a2846e4854ae60332f18
   PGMappingKit: 8270d7e878b9a2d8e22ed8d1d6e0c17948423539
 
 COCOAPODS: 0.39.0
