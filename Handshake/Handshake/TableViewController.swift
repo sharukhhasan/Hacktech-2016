@@ -69,6 +69,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         if let firstName = person?.firstName, lastName = person?.lastName {
             cell.textLabel?.text = firstName + " " + lastName
         }
+        
+        if let facebookUrl = person?.facebookUrl{
+            cell.imageView?.setImageWithURL(facebookUrl)
+        }
+        
+        if let linkedinUrl = person?.linkedinUrl{
+            cell.imageView?.setImageWithURL(linkedinUrl)
+        }
+        
+        if let email = person?.email{
+            let url = NSURL(string: "mailto:\(email)")
+            cell.imageView?.setImageWithURL(url)
+        }
 
         return cell
     }
