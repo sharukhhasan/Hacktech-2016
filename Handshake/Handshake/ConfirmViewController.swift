@@ -26,12 +26,28 @@ class ConfirmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let image = UIImage(named: "check-button-round") {
+            confirmButton.setImage(image, forState: UIControlState.Normal)
+        }
+        if let image = UIImage(named: "check-button-round-clicked") {
+            confirmButton.setImage(image, forState: UIControlState.Highlighted)
+        }
+        if let image = UIImage(named: "cancel-button-round") {
+            cancelButton.setImage(image, forState: UIControlState.Normal)
+        }
+        if let image = UIImage(named: "cancel-button-round-clicked") {
+            cancelButton.setImage(image, forState: UIControlState.Highlighted)
+        }
+        
         if let firstName = person?.firstName, let lastName = person?.lastName {
             titleLabel.text = "You just shook hands with \(firstName) \(lastName)!"
         }
 
         // TODO: replace this url with the profile pic link for the other user. :)
+        if let url = NSURL(string: "https://i.imgur.com/Jvh1OQm.jpg") {
+            profileImageView.setImageWithURL(url)
+        }
     }
     
     @IBAction func confirmButtonClicked(sender: AnyObject) {
@@ -39,7 +55,6 @@ class ConfirmViewController: UIViewController {
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
-
         do {
             if let unwrappedPerson = self.person {
                 self.context?.deleteObject(unwrappedPerson)

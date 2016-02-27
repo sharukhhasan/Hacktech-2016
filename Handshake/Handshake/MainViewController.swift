@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import CoreData
+import UIView_Shake
 
 class MainViewController: UIViewController, ShakeHandlerDelegate {
 
@@ -54,6 +55,7 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
             let destinationViewController = segue.destinationViewController as! ConfirmViewController
             destinationViewController.person = receivedPerson
             destinationViewController.context = context
+            subtitleLabel.text = "Waiting for handshake..."
         } else if segue.identifier == "PastSegue" {
             let destinationViewController = segue.destinationViewController as! TableViewController
             destinationViewController.context = context
@@ -65,6 +67,9 @@ class MainViewController: UIViewController, ShakeHandlerDelegate {
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if (motion == .MotionShake) {
             NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+                for subview in self.view.subviews {
+                    subview.shake()
+                }
                 self.subtitleLabel.text = "Searching for people..."
                 self.shakeHandler.send()
             }
