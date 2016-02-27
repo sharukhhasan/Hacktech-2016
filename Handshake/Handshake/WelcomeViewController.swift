@@ -10,8 +10,13 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
+    @IBOutlet weak var welcomeName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //TODO: Set text to be name of logged in user from FB
+        welcomeName.text = "Welcome, " + "{{Name}}" + "!"
     }
     
 }

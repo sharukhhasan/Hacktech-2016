@@ -10,8 +10,15 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     
+    //to stop the indicator: activityIndicatorView.stopAnimating()
+    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Check for the other shake here, and stop animating + segue to 
+        //confirmation screen after.
+        
     }
     
 }
