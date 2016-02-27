@@ -25,20 +25,23 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
 
     weak var delegate: ShakeHandlerDelegate?
 
-    let serviceType = "Handshake"
+    let serviceType = "hand-shake"
     let peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
     let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "firstName", remoteIDKey: "firstName", mapping: ["firstName": "firstName", "lastName": "lastName", "email": "email", "phoneNumber": "phoneNumber", "facebookUrl": "facebookUrl", "linkedinUrl": "linkedinUrl", "dateOfBirth": "dateOfBirth"])
 
     var context: NSManagedObjectContext?
+
+    let session: MCSession
 
     var advertiser: MCNearbyServiceAdvertiser?
     var browser: MCNearbyServiceBrowser?
 
     init(delegate: ShakeHandlerDelegate) {
         self.delegate = delegate
+        session = MCSession(peer: peerID)
     }
 
-    func sendPerson(person: Person, inside context: NSManagedObjectContext) {
+    func prepareToSend(person: Person, inside context: NSManagedObjectContext) {
         self.context = context
 
         let properties = PGNetworkHandler().dataFromObject(person, mapping: mapping)
@@ -57,8 +60,13 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
         advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: info, serviceType: serviceType)
         browser = MCNearbyServiceBrowser(peer: peerID, serviceType: serviceType)
 
-        advertiser?.startAdvertisingPeer()
-        browser?.startBrowsingForPeers()
+        advertiser!.delegate = self
+        browser!.delegate = self
+    }
+
+    func send() {
+        advertiser!.startAdvertisingPeer()
+        browser!.startBrowsingForPeers()
     }
 
     // MARK: MCNearbyServiceAdvertiserDelegate
@@ -66,11 +74,10 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
     func advertiser(advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: NSData?, invitationHandler: (Bool, MCSession) -> Void) {
         advertiser.stopAdvertisingPeer()
 
-        let session: MCSession = MCSession(peer: peerID)
         invitationHandler(false, session)
     }
 
-    @objc func advertiser(advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: NSError) {
+    func advertiser(advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: NSError) {
         print("Can't start advertising. \(error)")
     }
 
@@ -83,14 +90,13 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
         } else {
             print("Can't save received person. \(error)")
         }
-        let session: MCSession = MCSession(peer: peerID)
         browser.invitePeer(peerID, toSession: session, withContext: nil, timeout: 10)
         browser.stopBrowsingForPeers()
     }
 
     func browser(browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) { }
 
-    @objc func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError) {
+    func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError) {
         print("Can't start borwsing. \(error)")
     }
 
