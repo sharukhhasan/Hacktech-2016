@@ -34,13 +34,16 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell")! as! SettingsCell
+        
+        cell.nameLabel?.text = arraySettings[indexPath.row]
         
         switch indexPath.row {
             case 1:
-                cell.textLabel?.text = user?.firstName
+                 cell.textLabel?.text = user?.firstName
                 break;
             case 2:
+                
                 cell.textLabel?.text = user?.lastName
                 break;
             case 3:
