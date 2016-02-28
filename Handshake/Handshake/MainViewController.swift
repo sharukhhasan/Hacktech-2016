@@ -64,6 +64,9 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
         } else if segue.identifier == "PastSegue" {
             let destinationViewController = segue.destinationViewController as! TableViewController
             destinationViewController.context = context
+        } else if segue.identifier == "SettingsSegue" {
+            let destinationViewController = segue.destinationViewController as! SettingsViewController
+            destinationViewController.context = context
         }
     }
 

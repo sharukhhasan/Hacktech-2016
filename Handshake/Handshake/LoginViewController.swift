@@ -27,19 +27,19 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         context = delegate.managedObjectContext
+
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            if (NSUserDefaults.standardUserDefaults().objectForKey("UserEmail") != nil)
+            {
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        if (FBSDKAccessToken.currentAccessToken() != nil)
-        {
-            // User is already logged in, do work such as go to next view controller.
-            
-            performSegueWithIdentifier("loginSegue", sender: nil)
-        }
-        else
-        {
+        if (NSUserDefaults.standardUserDefaults().objectForKey("UserEmail") == nil) {
             let loginView : FBSDKLoginButton = FBSDKLoginButton()
             self.view.addSubview(loginView)
             loginView.center = self.view.center
