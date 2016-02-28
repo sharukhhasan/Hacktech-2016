@@ -138,8 +138,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func facebookButtonTapped(sender: UIButton) {
         let person = people?[sender.tag]
         if var facebookUrl = person?.facebookUrl {
+            print("\(facebookUrl)")
             if facebookUrl.lowercaseString.hasPrefix("http://") == false
-                && facebookUrl.lowercaseString.hasPrefix("http://") == false {
+                && facebookUrl.lowercaseString.hasPrefix("https://") == false {
                 facebookUrl = "http://\(facebookUrl)"
             }
 
@@ -163,6 +164,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func linkedinButtonTapped(sender: UIButton) {
         let person = people?[sender.tag]
         if var linkedinUrl = person?.linkedinUrl {
+            print("\(linkedinUrl)")
             if linkedinUrl.lowercaseString.hasPrefix("http://") == false
                 && linkedinUrl.lowercaseString.hasPrefix("www.") == false
                 && linkedinUrl.lowercaseString.hasPrefix("linkedin.com/") == false {
