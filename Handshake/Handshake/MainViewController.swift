@@ -36,31 +36,30 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         context = delegate.managedObjectContext
 
-        let email = NSUserDefaults.standardUserDefaults().objectForKey("UserEmail")
-        let person = try! context.objectWithType("Person", identifier: email, forKey: "email") as! Person
-
-        shakeHandler.prepareToSend(person, inside: context)
-        
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            
             if NSUserDefaults.standardUserDefaults().objectForKey("hasActivated") == nil {
                 // First launch
                 NSUserDefaults.standardUserDefaults().setObject("launched", forKey: "hasActivated")
                 self.performSegueWithIdentifier("SettingsSegue", sender: self)
             }
         }
-        
 
+        view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
+        indicatorView.type = .BallScaleMultiple
+        indicatorView.color = UIColor.whiteColor()
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        let email = NSUserDefaults.standardUserDefaults().objectForKey("UserEmail")
+        let person = try! context.objectWithType("Person", identifier: email, forKey: "email") as! Person
+
+        shakeHandler.prepareToSend(person, inside: context)
 
         if let name = person.firstName {
             titleLabel.text = "Welcome, \(name)!"
         } else {
             titleLabel.text = "Welcome to Handshake!"
         }
-
-        view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
-        indicatorView.type = .BallScaleMultiple
-        indicatorView.color = UIColor.whiteColor()
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
