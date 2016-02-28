@@ -4,8 +4,8 @@ Imagine you are at a hackathon. During the networking events and team building m
 
 That's where Handshake comes in. With Handshake, you can quickly sync with everyone you meet with a simple handshake (or shake of your phones). 
 
-Step 1. Connect with facebook
-Step 2. Meet someone
-Step 3. Shake!
+* Step 1. Connect with facebook
+* Step 2. Meet someone
+* Step 3. Shake!
 
 That's it - all it took was a simple shake! They will then show up in your connection history, where you will have access to the profiles they chose to make public. From there, you can effortlessly sync up and connect with them! 
