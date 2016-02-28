@@ -21,6 +21,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     var people: [Person]?
     var context: NSManagedObjectContext?
+    var onClickCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,8 +82,23 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier("PersonCell") as! PersonCell
         cell.backgroundColor = UIColor.clearColor()
 
-        if let firstName = person?.firstName, lastName = person?.lastName {
-            cell.nameLabel?.text = firstName + " " + lastName
+        switch onClickCount {
+        case 0:
+            if let firstName = person?.firstName, lastName = person?.lastName {
+                cell.nameLabel?.text = firstName + " " + lastName
+            } else {
+                cell.nameLabel?.text = "Unknown Name"
+            }
+            break
+        case 1:
+            cell.nameLabel?.text = person?.phoneNumber ?? "Unknown Phone Number"
+            break
+        case 2:
+            cell.nameLabel?.text = person?.company ?? "Unknown Company"
+            break
+        default:
+            print("Unknown onClickCount")
+            break
         }
 
         if let imageUrl = person?.imageUrl {
@@ -109,6 +125,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        onClickCount = (onClickCount + 1) % 3
+        tableView.reloadData()
     }
 
     @IBAction func facebookButtonTapped(sender: UIButton) {
