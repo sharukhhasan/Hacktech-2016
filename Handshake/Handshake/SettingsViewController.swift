@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var user: Person?
     var context: NSManagedObjectContext?
     
-    let arraySettings = ["First Name", "Last Name", "Email"]
+    let arraySettings = ["First Name", "Last Name", "Email", "Phone Number", "Company", "Facebook Link", "LinkedIn Link"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 7
     }
 
     @IBAction func doneButtonTapped(sender: AnyObject) {
@@ -62,6 +62,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             case 2:
                 cell.textField?.text = user?.email
                 break
+            case 3:
+                cell.textField?.text = user?.phoneNumber
+            case 4:
+                cell.textField?.text = user?.company
             default:
                 break
             
