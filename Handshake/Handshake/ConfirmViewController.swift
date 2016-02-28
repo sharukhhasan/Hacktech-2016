@@ -21,38 +21,46 @@ class ConfirmViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
-    //TODO: change these to nice pics of check mark and x if we have time
-    //and put them on the same line :)
-
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
         
         if let image = UIImage(named: "check-button-round") {
             confirmButton.setImage(image, forState: UIControlState.Normal)
         }
-        if let image = UIImage(named: "check-button-round-clicked") {
-            confirmButton.setImage(image, forState: UIControlState.Highlighted)
-        }
         if let image = UIImage(named: "cancel-button-round") {
             cancelButton.setImage(image, forState: UIControlState.Normal)
         }
-        if let image = UIImage(named: "cancel-button-round-clicked") {
-            cancelButton.setImage(image, forState: UIControlState.Highlighted)
-        }
-        
+
         if let firstName = person?.firstName, let lastName = person?.lastName {
             titleLabel.text = "You just shook hands with \(firstName) \(lastName)!"
         }
 
-        // TODO: replace this url with the profile pic link for the other user. :)
-        if let url = NSURL(string: "https://i.imgur.com/Jvh1OQm.jpg") {
-            profileImageView.setImageWithURL(url)
+        if let profile_url = person?.imageUrl {
+            if let url = NSURL(string: profile_url) {
+                profileImageView.setImageWithURL(url)
+            }
         }
 
-        view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
+        view.backgroundColor = UIColor.flatSkyBlueColor()
+
+        confirmButton.layer.masksToBounds = true
+        confirmButton.layer.cornerRadius = min(confirmButton.bounds.size.height, confirmButton.bounds.size.width) / 2
+        confirmButton.backgroundColor = UIColor.flatGreenColor()
+        cancelButton.layer.masksToBounds = true
+        cancelButton.layer.cornerRadius = min(cancelButton.bounds.size.height, cancelButton.bounds.size.width) / 2
+        cancelButton.backgroundColor = UIColor.flatRedColor()
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = min(profileImageView.bounds.size.height, profileImageView.bounds.size.width) / 2
+        profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        profileImageView.layer.borderWidth = 4
+    }
+
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 
     @IBAction func confirmButtonClicked(sender: AnyObject) {

@@ -12,8 +12,10 @@ import PGMappingKit
 import ChameleonFramework
 import QuartzCore
 import CoreGraphics
+import SafariServices
+import MessageUI
 
-class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -22,13 +24,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-        self.view.addGestureRecognizer(swipeRight)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-        self.view.addGestureRecognizer(swipeLeft)
 
         people = try! context?.objectsWithType("Person") as? [Person]
 
@@ -37,6 +32,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
     }
 
+    @IBAction func doneButtonTapped(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
@@ -64,31 +66,64 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let person = people?[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("PersonCell")!
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("PersonCell") as! PersonCell
+        cell.backgroundColor = UIColor.clearColor()
+
         if let firstName = person?.firstName, lastName = person?.lastName {
-            cell.textLabel?.text = firstName + " " + lastName
+            cell.nameLabel?.text = firstName + " " + lastName
         }
-        
-        if let facebookUrl = person?.facebookUrl{
-            cell.imageView?.setImageWithURL(facebookUrl)
+
+        if let imageUrl = person?.imageUrl {
+            if let url = NSURL(string: imageUrl) {
+                cell.profileImageView?.setImageWithURL(url)
+            }
         }
-        
-        if let linkedinUrl = person?.linkedinUrl{
-            cell.imageView?.setImageWithURL(linkedinUrl)
-        }
-        
-        if let email = person?.email{
-            let url = NSURL(string: "mailto:\(email)")
-            cell.imageView?.setImageWithURL(url)
-        }
+
+        cell.facebookButton.tag = indexPath.row
+        cell.linkedinButton.tag = indexPath.row
+        cell.emailButton.tag = indexPath.row
 
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        performSegueWithIdentifier("DetailedViewSegue", sender: self)
     }
-        
+
+    @IBAction func facebookButtonTapped(sender: UIButton) {
+        let person = people?[sender.tag]
+        if let facebookUrl = person?.facebookUrl {
+            if let url = NSURL(string: facebookUrl) {
+                let safari = SFSafariViewController(URL: url)
+                presentViewController(safari, animated: true, completion: nil)
+            }
+        }
+    }
+
+    @IBAction func emailButtonTapped(sender: UIButton) {
+        let person = people?[sender.tag]
+        if let email = person?.email {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([email])
+            presentViewController(mail, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction func linkedinButtonTapped(sender: UIButton) {
+        let person = people?[sender.tag]
+        if let linkedinUrl = person?.linkedinUrl {
+            if let url = NSURL(string: linkedinUrl) {
+                let safari = SFSafariViewController(URL: url)
+                presentViewController(safari, animated: true, completion: nil)
+            }
+        }
+    }
+
+    // MFMailComposeViewControllerDelegate
+
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
 }

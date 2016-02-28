@@ -19,6 +19,7 @@ import PGMappingKit
 
 protocol ShakeHandlerDelegate: class {
     func receivedPerson(person: Person)
+    func shakeTimeout()
 }
 
 class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate {
@@ -28,6 +29,7 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
     let serviceType = "hand-shake"
     let peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
     let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "firstName", remoteIDKey: "firstName", mapping: ["firstName": "firstName", "lastName": "lastName", "email": "email", "phoneNumber": "phoneNumber", "facebookUrl": "facebookUrl", "linkedinUrl": "linkedinUrl", "dateOfBirth": "dateOfBirth"])
+    var foundPerson = false
 
     var context: NSManagedObjectContext?
 
@@ -67,6 +69,20 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
     func send() {
         advertiser!.startAdvertisingPeer()
         browser!.startBrowsingForPeers()
+
+        let timer = NSTimer(timeInterval: 5, target: self, selector: "timeout:", userInfo: nil, repeats: false)
+        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+    }
+
+    // MARK Timer
+
+    func timeout(timer: NSTimer) {
+        if !foundPerson {
+            advertiser!.stopAdvertisingPeer()
+            browser!.stopBrowsingForPeers()
+            foundPerson = false
+            delegate?.shakeTimeout()
+        }
     }
 
     // MARK: MCNearbyServiceAdvertiserDelegate
@@ -90,6 +106,7 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
         } else {
             print("Can't save received person. \(error)")
         }
+        foundPerson = true
         browser.invitePeer(peerID, toSession: session, withContext: nil, timeout: 10)
         browser.stopBrowsingForPeers()
     }
