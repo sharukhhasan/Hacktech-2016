@@ -20,6 +20,7 @@
 		D0F177CB1C818A5D00691260 /* HandshakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177CA1C818A5D00691260 /* HandshakeUITests.swift */; };
 		D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */; };
 		D0F177DB1C818DA300691260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D91C818DA300691260 /* Person.swift */; };
+		EE1307101C82876A007C2541 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE13070F1C82876A007C2541 /* SettingsViewController.swift */; };
 		EE44F76A1C820FB300314215 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F7691C820FB300314215 /* TableViewController.swift */; };
 		EE44F7721C820FCE00314215 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F7711C820FCE00314215 /* ConfirmViewController.swift */; };
 		EE44F7741C82514400314215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE44F7731C82514400314215 /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		D0F177CC1C818A5D00691260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0F177D91C818DA300691260 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		EE13070F1C82876A007C2541 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EE44F7691C820FB300314215 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EE44F7711C820FCE00314215 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		EE44F7731C82514400314215 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				EE44F7711C820FCE00314215 /* ConfirmViewController.swift */,
 				EE44F7691C820FB300314215 /* TableViewController.swift */,
 				D0E620EE1C82335A00CCDB12 /* LoginViewController.swift */,
+				EE13070F1C82876A007C2541 /* SettingsViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */,
 				EE44F76A1C820FB300314215 /* TableViewController.swift in Sources */,
 				D0B980361C81941A00DACBCF /* (null) in Sources */,
+				EE1307101C82876A007C2541 /* SettingsViewController.swift in Sources */,
 				EEBD03D11C81ADCC00FBCFAA /* ShakeHandler.swift in Sources */,
 				D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */,
 				D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */,
