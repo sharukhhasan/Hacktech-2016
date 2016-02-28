@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "check-button-round.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "check-button-round.png",
       "scale" : "2x"
     },
     {
