@@ -12,23 +12,32 @@ import QuartzCore
 import CoreGraphics
 import FBSDKCoreKit
 import FBSDKLoginKit
+import CoreData
+import PGMappingKit
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
+    var context: NSManagedObjectContext!
+    
     override func viewDidLoad() {
         view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
+        
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        context = delegate.managedObjectContext
+
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+        
+            if (NSUserDefaults.standardUserDefaults().objectForKey("id") != nil)
+            {
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        if (FBSDKAccessToken.currentAccessToken() != nil)
-        {
-            // User is already logged in, do work such as go to next view controller.
-            
-            performSegueWithIdentifier("loginSegue", sender: nil)
-        }
-        else
-        {
+        if (NSUserDefaults.standardUserDefaults().objectForKey("id") == nil) {
             let loginView : FBSDKLoginButton = FBSDKLoginButton()
             self.view.addSubview(loginView)
             loginView.center = self.view.center
@@ -38,9 +47,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     // Facebook Delegate Methods
@@ -60,11 +68,27 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             // should check if specific permissions missing
             if result.grantedPermissions.contains("public_profile")
             {
-                // Do work
-                print("Logged in!")
-                //Send the data to other controller?
+                self.getFBUserData()
                 performSegueWithIdentifier("loginSegue", sender: nil)
             }
+        }
+    }
+    
+    func getFBUserData(){
+        if((FBSDKAccessToken.currentAccessToken()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
+                if (error == nil){
+                    var dictionary = result as! [String : AnyObject]
+                    print(dictionary)
+                    let picture = dictionary["picture"] as! [String : AnyObject]
+                    let data = picture["data"] as! [String : AnyObject]
+                    dictionary["image_url"] = data["url"]
+                    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "id", remoteIDKey: "id", mapping: ["last_name": "lastName", "first_name": "firstName", "image_url": "imageUrl", "email": "email"])
+                    let user = self.context.save(dictionary, description: mapping, error: nil) as! Person
+                    NSUserDefaults.standardUserDefaults().setObject(user.id, forKey: "id")
+                    try! self.context.save()
+                }
+            })
         }
     }
     

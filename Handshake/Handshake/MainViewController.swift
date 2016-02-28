@@ -14,13 +14,14 @@ import ChameleonFramework
 import QuartzCore
 import CoreGraphics
 import BubbleTransition
+import NVActivityIndicatorView
 
 class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-
+    @IBOutlet weak var indicatorView: NVActivityIndicatorView!
     let transition = BubbleTransition()
 
     var shakeHandler: ShakeHandler!
@@ -35,25 +36,30 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         context = delegate.managedObjectContext
 
-        let person = context.save(["firstName": "Justin", "lastName": "Jia", "email": "justin.jia@icloud.com"], description: shakeHandler!.mapping, error: nil) as! Person
-
-        shakeHandler.prepareToSend(person, inside: context)
-
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-        self.view.addGestureRecognizer(swipeLeft)
-
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-        self.view.addGestureRecognizer(swipeRight)
-
-        if let name = person.firstName {
-            titleLabel.text = "Welcome, \(name)"
-        } else {
-            titleLabel.text = "Welcome to Handshake!"
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            if NSUserDefaults.standardUserDefaults().objectForKey("hasActivated") == nil {
+                // First launch
+                NSUserDefaults.standardUserDefaults().setObject("launched", forKey: "hasActivated")
+                self.performSegueWithIdentifier("SettingsSegue", sender: self)
+            }
         }
 
         view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
+        indicatorView.type = .BallScaleMultiple
+        indicatorView.color = UIColor.whiteColor()
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        let id = NSUserDefaults.standardUserDefaults().objectForKey("id")
+        let person = try! context.objectWithType("Person", identifier: id, forKey: "id") as! Person
+
+        shakeHandler.prepareToSend(person, inside: context)
+
+        if let name = person.firstName {
+            titleLabel.text = "Welcome, \(name)!"
+        } else {
+            titleLabel.text = "Welcome to Handshake!"
+        }
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -64,25 +70,33 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
             destinationViewController.transitioningDelegate = self
             destinationViewController.modalPresentationStyle = .Custom
             subtitleLabel.text = "Waiting for handshake..."
+            indicatorView.stopAnimation()
         } else if segue.identifier == "PastSegue" {
             let destinationViewController = segue.destinationViewController as! TableViewController
             destinationViewController.context = context
+        } else if segue.identifier == "SettingsSegue" {
+            let destinationViewController = segue.destinationViewController as! SettingsViewController
+            destinationViewController.context = context
         }
+    }
+
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 
     // MARK: UIViewControllerTransitioningDelegate
 
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .Present
-        transition.startingPoint = subtitleLabel.center
-        transition.bubbleColor = UIColor.blueColor()
+        transition.startingPoint = indicatorView.center
+        transition.bubbleColor = UIColor.flatSkyBlueColor()
         return transition
     }
 
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .Dismiss
-        transition.startingPoint = subtitleLabel.center
-        transition.bubbleColor = UIColor.blueColor()
+        transition.startingPoint = indicatorView.center
+        transition.bubbleColor = UIColor.flatSkyBlueColor()
         return transition
     }
 
@@ -96,29 +110,10 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
                 }
                 self.subtitleLabel.text = "Searching for people..."
                 self.shakeHandler.send()
+                self.indicatorView.startAnimation()
             }
         }
     }
-
-    // MARK: Gesture
-
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Right:
-                print("Swiped right")
-                performSegueWithIdentifier("PastSegue", sender: self)
-                break
-            case UISwipeGestureRecognizerDirection.Left:
-                print("Swiped left")
-                performSegueWithIdentifier("PastSegue", sender: self)
-                break
-            default:
-                break
-            }
-        }
-    }
-
 
     // MARK: ShakeHandlerDelegate
 
@@ -127,7 +122,10 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
         performSegueWithIdentifier("ConfirmSegue", sender: self)
     }
     
-    
+    func shakeTimeout() {
+        subtitleLabel.text = "Waiting for handshake..."
+        indicatorView.stopAnimation()
+    }
 
 }
 

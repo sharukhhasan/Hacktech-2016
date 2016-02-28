@@ -19,6 +19,7 @@ import PGMappingKit
 
 protocol ShakeHandlerDelegate: class {
     func receivedPerson(person: Person)
+    func shakeTimeout()
 }
 
 class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate {
@@ -27,7 +28,9 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
 
     let serviceType = "hand-shake"
     let peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
-    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "firstName", remoteIDKey: "firstName", mapping: ["firstName": "firstName", "lastName": "lastName", "email": "email", "phoneNumber": "phoneNumber", "facebookUrl": "facebookUrl", "linkedinUrl": "linkedinUrl", "dateOfBirth": "dateOfBirth"])
+
+    var mapping: PGMappingDescription!
+    var foundPerson = false
 
     var context: NSManagedObjectContext?
 
@@ -42,9 +45,40 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
     }
 
     func prepareToSend(person: Person, inside context: NSManagedObjectContext) {
+
+        mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "id", remoteIDKey: "id", mapping: ["imageUrl": "imageUrl", "facebookUrl": "facebookUrl", "linkedinUrl": "linkedinUrl", "company": "company", "phoneNumber": "phoneNumber", "email": "email", "firstName": "firstName", "lastName": "lastName"])
+
         self.context = context
 
         let properties = PGNetworkHandler().dataFromObject(person, mapping: mapping)
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("firstNameOff") {
+            properties.removeObjectForKey("firstName")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("lastNameOff") {
+            properties.removeObjectForKey("lastName")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("emailOff") {
+            properties.removeObjectForKey("email")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("phoneNumberOff") {
+            properties.removeObjectForKey("phoneNumber")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("companyOff") {
+            properties.removeObjectForKey("company")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("facebookUrlOff") {
+            properties.removeObjectForKey("facebookUrl")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("linkedinUrlOff") {
+            properties.removeObjectForKey("linkedinUrl")
+        }
 
         for element in properties {
             if !(element.value is String) {
@@ -67,6 +101,20 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
     func send() {
         advertiser!.startAdvertisingPeer()
         browser!.startBrowsingForPeers()
+
+        let timer = NSTimer(timeInterval: 5, target: self, selector: "timeout:", userInfo: nil, repeats: false)
+        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+    }
+
+    // MARK Timer
+
+    func timeout(timer: NSTimer) {
+        if !foundPerson {
+            advertiser!.stopAdvertisingPeer()
+            browser!.stopBrowsingForPeers()
+            foundPerson = false
+            delegate?.shakeTimeout()
+        }
     }
 
     // MARK: MCNearbyServiceAdvertiserDelegate
@@ -90,6 +138,7 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
         } else {
             print("Can't save received person. \(error)")
         }
+        foundPerson = true
         browser.invitePeer(peerID, toSession: session, withContext: nil, timeout: 10)
         browser.stopBrowsingForPeers()
     }
