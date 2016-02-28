@@ -83,6 +83,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.linkedinButton.tag = indexPath.row
         cell.emailButton.tag = indexPath.row
 
+        cell.profileImageView.layer.masksToBounds = true
+        cell.profileImageView.layer.cornerRadius = min(cell.profileImageView.bounds.size.height, cell.profileImageView.bounds.size.width)
+        cell.profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.profileImageView.layer.borderWidth = 2
+
         return cell
     }
     
