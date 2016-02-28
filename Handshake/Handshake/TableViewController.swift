@@ -132,7 +132,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     @IBAction func facebookButtonTapped(sender: UIButton) {
         let person = people?[sender.tag]
-        if let facebookUrl = person?.facebookUrl {
+        if var facebookUrl = person?.facebookUrl {
+            if facebookUrl.lowercaseString.hasPrefix("http://") == false {
+                facebookUrl = "http://\(facebookUrl)"
+            }
+
             if let url = NSURL(string: facebookUrl) {
                 let safari = SFSafariViewController(URL: url)
                 presentViewController(safari, animated: true, completion: nil)
@@ -152,7 +156,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     @IBAction func linkedinButtonTapped(sender: UIButton) {
         let person = people?[sender.tag]
-        if let linkedinUrl = person?.linkedinUrl {
+        if var linkedinUrl = person?.linkedinUrl {
+            if linkedinUrl.lowercaseString.hasPrefix("http://") == false {
+                linkedinUrl = "http://\(linkedinUrl)"
+            }
             if let url = NSURL(string: linkedinUrl) {
                 let safari = SFSafariViewController(URL: url)
                 presentViewController(safari, animated: true, completion: nil)
