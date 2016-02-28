@@ -46,45 +46,39 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
 
     func prepareToSend(person: Person, inside context: NSManagedObjectContext) {
 
-        var keys: [NSObject: AnyObject] = [:]
-
-        if !NSUserDefaults.standardUserDefaults().boolForKey("firstNameOff") {
-            keys["firstName"] = "firstName"
-        }
-
-        if !NSUserDefaults.standardUserDefaults().boolForKey("lastNameOff") {
-            keys["lastName"] = "lastName"
-        }
-
-        if !NSUserDefaults.standardUserDefaults().boolForKey("emailOff") {
-            keys["email"] = "email"
-        }
-
-        if !NSUserDefaults.standardUserDefaults().boolForKey("phoneNumberOff") {
-            keys["phoneNumber"] = "phoneNumber"
-        }
-
-        if !NSUserDefaults.standardUserDefaults().boolForKey("companyOff") {
-            keys["company"] = "company"
-        }
-
-        if !NSUserDefaults.standardUserDefaults().boolForKey("facebookUrlOff") {
-            keys["facebookUrl"] = "facebookUrl"
-        }
-
-        if !NSUserDefaults.standardUserDefaults().boolForKey("linkedinUrlOff") {
-            keys["linkedinUrl"] = "linkedinUrl"
-        }
-
-        keys["imageUrl"] = "imageUrl"
-
-        print(keys)
-
-        mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "id", remoteIDKey: "id", mapping: keys)
+        mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "id", remoteIDKey: "id", mapping: ["imageUrl": "imageUrl", "facebookUrl": "facebookUrl", "linkedinUrl": "linkedinUrl", "company": "company", "phoneNumber": "phoneNumber", "email": "email", "firstName": "firstName", "lastName": "lastName"])
 
         self.context = context
 
         let properties = PGNetworkHandler().dataFromObject(person, mapping: mapping)
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("firstNameOff") {
+            properties.removeObjectForKey("firstName")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("lastNameOff") {
+            properties.removeObjectForKey("lastName")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("emailOff") {
+            properties.removeObjectForKey("email")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("phoneNumberOff") {
+            properties.removeObjectForKey("phoneNumber")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("companyOff") {
+            properties.removeObjectForKey("company")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("facebookUrlOff") {
+            properties.removeObjectForKey("facebookUrl")
+        }
+
+        if NSUserDefaults.standardUserDefaults().boolForKey("linkedinUrlOff") {
+            properties.removeObjectForKey("linkedinUrl")
+        }
 
         for element in properties {
             if !(element.value is String) {
