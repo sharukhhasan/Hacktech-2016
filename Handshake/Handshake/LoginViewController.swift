@@ -78,14 +78,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func getFBUserData(){
         if((FBSDKAccessToken.currentAccessToken()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email, link"]).startWithCompletionHandler({ (connection, result, error) -> Void in
                 if (error == nil){
                     var dictionary = result as! [String : AnyObject]
                     print(dictionary)
                     let picture = dictionary["picture"] as! [String : AnyObject]
                     let data = picture["data"] as! [String : AnyObject]
                     dictionary["image_url"] = data["url"]
-                    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "id", remoteIDKey: "id", mapping: ["last_name": "lastName", "first_name": "firstName", "image_url": "imageUrl", "email": "email"])
+                    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "id", remoteIDKey: "id", mapping: ["last_name": "lastName", "first_name": "firstName", "image_url": "imageUrl", "email": "email", "link": "facebookUrl"])
                     let user = self.context.save(dictionary, description: mapping, error: nil) as! Person
                     NSUserDefaults.standardUserDefaults().setObject(user.id, forKey: "id")
                     try! self.context.save()
