@@ -44,6 +44,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             loginView.readPermissions = ["public_profile", "email"]
             loginView.delegate = self
             
+        } else {
+             performSegueWithIdentifier("loginSegue", sender: self)
         }
     }
     
