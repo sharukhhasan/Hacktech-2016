@@ -12,10 +12,21 @@ import QuartzCore
 import CoreGraphics
 import FBSDKCoreKit
 import FBSDKLoginKit
+import CoreData
+import PGMappingKit
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
+    var facebookid: NSString = ""
+    var username: NSString = ""
+    var userEmail:NSString = ""
+    var context: NSManagedObjectContext!
+    
     override func viewDidLoad() {
         view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
+        
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        context = delegate.managedObjectContext
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -59,11 +70,24 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             // should check if specific permissions missing
             if result.grantedPermissions.contains("public_profile")
             {
-                // Do work
-                print("Logged in!")
-                //Send the data to other controller?
+                self.getFBUserData()
                 performSegueWithIdentifier("loginSegue", sender: nil)
             }
+        }
+    }
+    
+    func getFBUserData(){
+        if((FBSDKAccessToken.currentAccessToken()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
+                if (error == nil){
+                    let dictionary = result as! [String : AnyObject]
+                    print(dictionary)
+                    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "email", remoteIDKey: "email", mapping: ["last_name": "lastName", "first_name": "firstName"])
+                    let user = self.context.save(dictionary, description: mapping, error: nil) as! Person
+                    NSUserDefaults.standardUserDefaults().setObject(user.email, forKey: "UserEmail")
+                    try! self.context.save()
+                }
+            })
         }
     }
     

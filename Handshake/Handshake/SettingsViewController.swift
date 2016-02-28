@@ -21,20 +21,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        user = try! context?.objectsWithType("Person") as? Person
-        
-        getUser()
-    }
-    
-    func getUser(){
-        if((FBSDKAccessToken.currentAccessToken()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
-                
-                    if (error == nil){
-                        self.currentUserID = result.valueForKey("id") as! NSString
-                    }
-            })
-        }
+        let userEmail = NSUserDefaults.standardUserDefaults().objectForKey("UserEmail") as! String
+        user = try! context?.objectWithType("Person", identifier: userEmail, forKey: "email") as! Person
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -42,31 +30,33 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return people?.count ?? 0
+        return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let person = people?[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell")!
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("PersonCell")!
-        
-        if let firstName = person?.firstName, lastName = person?.lastName {
-            cell.textLabel?.text = firstName + " " + lastName
+        switch indexPath.row {
+            case 1:
+                cell.textLabel?.text = user?.firstName
+                break;
+            case 2:
+                cell.textLabel?.text = user?.lastName
+                break;
+            case 3:
+                cell.textLabel?.text = user?.email
+                break;
+            case 4:
+                cell.textLabel?.text = ""
+                break;
+            case 5:
+                cell.textLabel?.text = ""
+                break;
+            default:
+                cell.textLabel?.text = ""
+            
         }
-        
-        /*if let facebookUrl = person?.facebookUrl{
-        cell.imageView?.setImageWithURL(facebookUrl)
-        }
-        
-        if let linkedinUrl = person?.linkedinUrl{
-        cell.imageView?.setImageWithURL(linkedinUrl)
-        }
-        
-        if let email = person?.email{
-        let url = NSURL(string: "mailto:\(email)")
-        cell.imageView?.setImageWithURL(url)
-        }*/
-        
+
         return cell
     }
     
