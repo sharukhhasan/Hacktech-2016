@@ -95,6 +95,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.linkedinButton.tag = indexPath.row
         cell.emailButton.tag = indexPath.row
 
+        cell.facebookButton.enabled = person?.facebookUrl != nil
+        cell.linkedinButton.enabled = person?.linkedinUrl != nil
+        cell.emailButton.enabled = person?.email != nil
+
         cell.profileImageView.layer.masksToBounds = true
         cell.profileImageView.layer.cornerRadius = min(cell.profileImageView.bounds.size.height, cell.profileImageView.bounds.size.width) / 2
         cell.profileImageView.layer.borderColor = UIColor.whiteColor().CGColor

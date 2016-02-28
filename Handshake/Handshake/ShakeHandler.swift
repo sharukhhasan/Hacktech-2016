@@ -28,7 +28,8 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
 
     let serviceType = "hand-shake"
     let peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
-    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "firstName", remoteIDKey: "firstName", mapping: ["firstName": "firstName", "lastName": "lastName", "email": "email", "phoneNumber": "phoneNumber", "facebookUrl": "facebookUrl", "linkedinUrl": "linkedinUrl", "dateOfBirth": "dateOfBirth"])
+
+    var mapping: PGMappingDescription!
     var foundPerson = false
 
     var context: NSManagedObjectContext?
@@ -42,10 +43,26 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
         self.delegate = delegate
         session = MCSession(peer: peerID)
     }
-    
-    
 
     func prepareToSend(person: Person, inside context: NSManagedObjectContext) {
+
+        var keys: [NSObject: AnyObject] = [:]
+
+        if !NSUserDefaults.standardUserDefaults().boolForKey("firstNameOff") {
+            keys["firstName"] = "firstName"
+        }
+
+        if !NSUserDefaults.standardUserDefaults().boolForKey("lastNameOff") {
+            keys["lastName"] = "lastName"
+        }
+
+        if !NSUserDefaults.standardUserDefaults().boolForKey("emailOff") {
+            keys["email"] = "email"
+        }
+
+
+        mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "imageUrl", remoteIDKey: "imageUrl", mapping: keys)
+
         self.context = context
 
         let properties = PGNetworkHandler().dataFromObject(person, mapping: mapping)
