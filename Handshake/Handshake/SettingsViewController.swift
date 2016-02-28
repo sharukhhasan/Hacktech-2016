@@ -117,10 +117,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func switchValueChanged(sender: UISwitch) {
         switch sender.tag {
         case 0:
-            NSUserDefaults.standardUserDefaults().setBool(!sender.on, forKey: "FirstNameOff")
+            NSUserDefaults.standardUserDefaults().setBool(!sender.on, forKey: "firstNameOff")
             break
         case 1:
-            NSUserDefaults.standardUserDefaults().setBool(!sender.on, forKey: "LastNameOff")
+            NSUserDefaults.standardUserDefaults().setBool(!sender.on, forKey: "lastNameOff")
             break
         case 2:
             NSUserDefaults.standardUserDefaults().setBool(!sender.on, forKey: "emailOff")
@@ -146,13 +146,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell")! as! SettingsCell
         cell.backgroundColor = UIColor.clearColor()
         cell.nameLabel?.text = arraySettings[indexPath.row]
-        cell.nameLabel.tag = indexPath.row
+        cell.textField.tag = indexPath.row
         cell.uiSwitch.tag = indexPath.row
 
         switch indexPath.row {
         case 0:
             cell.textField?.text = user?.firstName
-            cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("FirstNameOff")
+            cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("firstNameOff")
             break
         case 1:
             cell.textField?.text = user?.lastName
