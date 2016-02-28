@@ -27,6 +27,17 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         people = try! context?.objectsWithType("Person") as? [Person]
 
+        if let unwrappedPeople = people {
+            let email = NSUserDefaults.standardUserDefaults().objectForKey("UserEmail") as! String
+            for person in unwrappedPeople {
+                if person.email == email {
+                    if let index = people?.indexOf(person) {
+                        people?.removeAtIndex(index)
+                    }
+                }
+            }
+        }
+
         tableView.reloadData()
 
         view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
