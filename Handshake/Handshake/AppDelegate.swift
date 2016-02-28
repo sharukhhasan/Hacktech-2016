@@ -13,6 +13,10 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var bool_firstName: Bool?, bool_secondName: Bool?, bool_email: Bool?, bool_phoneNumber: Bool?, bool_facebookUrl: Bool?, bool_linkedinUrl: Bool?
+    
+    var firstActivity: Bool?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

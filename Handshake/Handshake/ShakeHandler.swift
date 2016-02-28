@@ -42,6 +42,8 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
         self.delegate = delegate
         session = MCSession(peer: peerID)
     }
+    
+    
 
     func prepareToSend(person: Person, inside context: NSManagedObjectContext) {
         self.context = context
