@@ -8,6 +8,9 @@
 
 import Foundation
 import CoreData
+import ChameleonFramework
+import QuartzCore
+import CoreGraphics
 
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -23,6 +26,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let userEmail = NSUserDefaults.standardUserDefaults().objectForKey("UserEmail") as! String
         user = try! context?.objectWithType("Person", identifier: userEmail, forKey: "email") as! Person
+
+        view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
