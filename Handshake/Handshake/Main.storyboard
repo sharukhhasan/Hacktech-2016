@@ -338,9 +338,9 @@
                                                     </connections>
                                                 </switch>
                                                 <textField opaque="NO" clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="074-Jr-6BY">
-                                                    <rect key="frame" x="66" y="8" width="8" height="64"/>
+                                                    <rect key="frame" x="66" y="8" width="120" height="64"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="Qoz-sV-fEW"/>
+                                                        <constraint firstAttribute="width" constant="120" id="Qoz-sV-fEW"/>
                                                     </constraints>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
