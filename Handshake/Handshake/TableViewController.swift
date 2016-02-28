@@ -46,6 +46,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func doneButtonTapped(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
