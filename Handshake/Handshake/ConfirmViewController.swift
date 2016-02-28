@@ -35,9 +35,14 @@ class ConfirmViewController: UIViewController {
             cancelButton.setImage(image, forState: UIControlState.Normal)
         }
 
-        if let firstName = person?.firstName, let lastName = person?.lastName {
-            titleLabel.text = "You just shook hands with \(firstName) \(lastName)!"
+        var firstName = person?.firstName ?? ""
+        if firstName != "" {
+            firstName = firstName + " "
         }
+
+        let lastName = person?.lastName ?? ""
+        let fullName = (firstName + lastName != "") ? firstName + lastName : "someone"
+        titleLabel.text = "You just shook hands with \(fullName)!"
 
         if let profile_url = person?.imageUrl {
             if let url = NSURL(string: profile_url) {

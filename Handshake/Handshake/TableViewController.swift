@@ -84,8 +84,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         switch onClickCount {
         case 0:
-            if let firstName = person?.firstName, lastName = person?.lastName {
-                cell.nameLabel?.text = firstName + " " + lastName
+            var firstName = person?.firstName ?? ""
+            if firstName != "" {
+                firstName = firstName + " "
+            }
+            let lastName = person?.lastName ?? ""
+            if firstName + lastName != "" {
+                cell.nameLabel?.text = firstName + lastName
             } else {
                 cell.nameLabel?.text = "Unknown Name"
             }
