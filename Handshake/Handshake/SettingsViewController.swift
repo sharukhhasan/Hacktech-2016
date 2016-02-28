@@ -32,8 +32,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userEmail = NSUserDefaults.standardUserDefaults().objectForKey("UserEmail") as! String
-        user = try! context?.objectWithType("Person", identifier: userEmail, forKey: "email") as! Person
+        let id = NSUserDefaults.standardUserDefaults().objectForKey("id") as! String
+        user = try! context?.objectWithType("Person", identifier: id, forKey: "id") as! Person
 
         view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
     }

@@ -50,8 +50,8 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
     }
 
     override func viewWillAppear(animated: Bool) {
-        let email = NSUserDefaults.standardUserDefaults().objectForKey("UserEmail")
-        let person = try! context.objectWithType("Person", identifier: email, forKey: "email") as! Person
+        let id = NSUserDefaults.standardUserDefaults().objectForKey("id")
+        let person = try! context.objectWithType("Person", identifier: id, forKey: "id") as! Person
 
         shakeHandler.prepareToSend(person, inside: context)
 

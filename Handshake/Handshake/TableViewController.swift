@@ -28,9 +28,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         people = try! context?.objectsWithType("Person") as? [Person]
 
         if let unwrappedPeople = people {
-            let email = NSUserDefaults.standardUserDefaults().objectForKey("UserEmail") as! String
+            let id = NSUserDefaults.standardUserDefaults().objectForKey("id") as! String
             for person in unwrappedPeople {
-                if person.email == email {
+                if person.id == id {
                     if let index = people?.indexOf(person) {
                         people?.removeAtIndex(index)
                     }

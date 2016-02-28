@@ -17,9 +17,6 @@ import PGMappingKit
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-    var facebookid: NSString = ""
-    var username: NSString = ""
-    var userEmail:NSString = ""
     var context: NSManagedObjectContext!
     
     override func viewDidLoad() {
@@ -30,7 +27,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
         
-            if (NSUserDefaults.standardUserDefaults().objectForKey("UserEmail") != nil)
+            if (NSUserDefaults.standardUserDefaults().objectForKey("id") != nil)
             {
                 self.performSegueWithIdentifier("loginSegue", sender: self)
             }
@@ -40,7 +37,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        if (NSUserDefaults.standardUserDefaults().objectForKey("UserEmail") == nil) {
+        if (NSUserDefaults.standardUserDefaults().objectForKey("id") == nil) {
             let loginView : FBSDKLoginButton = FBSDKLoginButton()
             self.view.addSubview(loginView)
             loginView.center = self.view.center
@@ -86,9 +83,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     let picture = dictionary["picture"] as! [String : AnyObject]
                     let data = picture["data"] as! [String : AnyObject]
                     dictionary["image_url"] = data["url"]
-                    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "email", remoteIDKey: "email", mapping: ["last_name": "lastName", "first_name": "firstName", "image_url": "imageUrl"])
+                    let mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "id", remoteIDKey: "id", mapping: ["last_name": "lastName", "first_name": "firstName", "image_url": "imageUrl", "email": "email"])
                     let user = self.context.save(dictionary, description: mapping, error: nil) as! Person
-                    NSUserDefaults.standardUserDefaults().setObject(user.email, forKey: "UserEmail")
+                    NSUserDefaults.standardUserDefaults().setObject(user.id, forKey: "id")
                     try! self.context.save()
                 }
             })

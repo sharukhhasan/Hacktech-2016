@@ -76,9 +76,11 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
             keys["linkedinUrl"] = "linkedinUrl"
         }
 
+        keys["imageUrl"] = "imageUrl"
+
         print(keys)
 
-        mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "imageUrl", remoteIDKey: "imageUrl", mapping: keys)
+        mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "id", remoteIDKey: "id", mapping: keys)
 
         self.context = context
 

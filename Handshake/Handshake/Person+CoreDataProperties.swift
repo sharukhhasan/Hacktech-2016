@@ -14,6 +14,7 @@ import CoreData
 
 extension Person {
 
+    @NSManaged var id: String?
     @NSManaged var email: String?
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
