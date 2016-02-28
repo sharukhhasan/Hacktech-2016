@@ -95,7 +95,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.emailButton.tag = indexPath.row
 
         cell.profileImageView.layer.masksToBounds = true
-        cell.profileImageView.layer.cornerRadius = min(cell.profileImageView.bounds.size.height, cell.profileImageView.bounds.size.width)
+        cell.profileImageView.layer.cornerRadius = min(cell.profileImageView.bounds.size.height, cell.profileImageView.bounds.size.width) / 2
         cell.profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
         cell.profileImageView.layer.borderWidth = 2
 
