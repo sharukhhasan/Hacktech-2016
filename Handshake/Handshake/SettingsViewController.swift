@@ -22,8 +22,12 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var firstName: String?
     var lastName: String?
     var email: String?
-    
-    let arraySettings = ["First Name", "Last Name", "Email", "Phone Number", "Company", "Facebook Link", "LinkedIn Link"]
+    var phoneNumber: String?
+    var company: String?
+    var facebookUrl: String?
+    var linkedinUrl: String?
+
+    let arraySettings = ["First Name", "Last Name", "Email", "Phone Number", "Company", "Facebook Link", "Linkedin Link"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +53,19 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         case 2:
             email = sender.text
             break
+        case 3:
+            phoneNumber = sender.text
+            break
+        case 4:
+            company = sender.text
+            break
+        case 5:
+            facebookUrl = sender.text
+            break
+        case 6:
+            linkedinUrl = sender.text
+            break
+
         default:
             print("Unknown text field.")
             break
@@ -76,6 +93,22 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             user?.email = email
         }
 
+        if let phoneNumber = phoneNumber {
+            user?.phoneNumber = phoneNumber
+        }
+
+        if let company = company {
+            user?.company = company
+        }
+
+        if let facebookUrl = facebookUrl {
+            user?.facebookUrl = facebookUrl
+        }
+
+        if let linkedinUrl = linkedinUrl {
+            user?.linkedinUrl = linkedinUrl
+        }
+
         try! context?.save()
 
         dismissViewControllerAnimated(true, completion: nil)
@@ -92,6 +125,18 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         case 2:
             NSUserDefaults.standardUserDefaults().setBool(!sender.on, forKey: "emailOff")
             break
+        case 3:
+            NSUserDefaults.standardUserDefaults().setBool(!sender.on, forKey: "phoneNumberOff")
+            break
+        case 4:
+            NSUserDefaults.standardUserDefaults().setBool(!sender.on, forKey: "companyOff")
+            break
+        case 5:
+            NSUserDefaults.standardUserDefaults().setBool(!sender.on, forKey: "facebookUrlOff")
+            break
+        case 6:
+            NSUserDefaults.standardUserDefaults().setBool(!sender.on, forKey: "linkedinUrlOff")
+            break
         default:
             print("Unknown switch.")
         }
@@ -105,25 +150,39 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.uiSwitch.tag = indexPath.row
 
         switch indexPath.row {
-            case 0:
-                cell.textField?.text = user?.firstName
-                cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("FirstNameOff")
-                break
-            case 1:
-                cell.textField?.text = user?.lastName
-                cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("lastNameOff")
-                break
-            case 2:
-                cell.textField?.text = user?.email
-                cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("lastNameOff")
-                break
-            case 3:
-                cell.textField?.text = user?.phoneNumber
-            case 4:
-                cell.textField?.text = user?.company
-            default:
-                break
-            
+        case 0:
+            cell.textField?.text = user?.firstName
+            cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("FirstNameOff")
+            break
+        case 1:
+            cell.textField?.text = user?.lastName
+            cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("lastNameOff")
+            break
+        case 2:
+            cell.textField?.text = user?.email
+            cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("emailOff")
+            break
+        case 3:
+            cell.textField?.text = user?.phoneNumber
+            cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("phoneNumberOff")
+            break
+        case 4:
+            cell.textField?.text = user?.company
+            cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("companyOff")
+            break
+        case 5:
+            cell.textField?.text = user?.facebookUrl
+            cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("facebookUrlOff")
+            break
+        case 6:
+            cell.textField?.text = user?.linkedinUrl
+            cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("linkedinUrlOff")
+            break
+
+        default:
+            print("Unknown index path.")
+            break
+        
         }
 
         return cell

@@ -60,6 +60,21 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
             keys["email"] = "email"
         }
 
+        if !NSUserDefaults.standardUserDefaults().boolForKey("phoneNumberOff") {
+            keys["phoneNumber"] = "phoneNumber"
+        }
+
+        if !NSUserDefaults.standardUserDefaults().boolForKey("companyOff") {
+            keys["company"] = "company"
+        }
+
+        if !NSUserDefaults.standardUserDefaults().boolForKey("facebookUrlOff") {
+            keys["facebookUrl"] = "facebookUrl"
+        }
+
+        if !NSUserDefaults.standardUserDefaults().boolForKey("linkedinUrlOff") {
+            keys["linkedinUrl"] = "linkedinUrl"
+        }
 
         mapping = PGMappingDescription(localName: "Person", remoteName: "Person", localIDKey: "imageUrl", remoteIDKey: "imageUrl", mapping: keys)
 
