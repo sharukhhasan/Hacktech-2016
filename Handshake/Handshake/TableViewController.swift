@@ -164,8 +164,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let person = people?[sender.tag]
         if var linkedinUrl = person?.linkedinUrl {
             if linkedinUrl.lowercaseString.hasPrefix("http://") == false
-                && linkedinUrl.lowercaseString.hasPrefix("www.")
-                && linkedinUrl.lowercaseString.hasPrefix("linkedin.com/") {
+                && linkedinUrl.lowercaseString.hasPrefix("www.") == false
+                && linkedinUrl.lowercaseString.hasPrefix("linkedin.com/") == false {
                 linkedinUrl = "http://www.linkedin.com/in/\(linkedinUrl)"
             }
             if let url = NSURL(string: linkedinUrl) {
