@@ -58,7 +58,7 @@
                                 </constraints>
                                 <state key="normal" image="setting"/>
                                 <connections>
-                                    <segue destination="Elx-ta-4Hx" kind="presentation" id="NNP-vd-JNU"/>
+                                    <segue destination="Elx-ta-4Hx" kind="presentation" identifier="SettingsSegue" id="NNP-vd-JNU"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shake" translatesAutoresizingMaskIntoConstraints="NO" id="edm-fC-Bmv">
@@ -129,7 +129,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginSegue" id="v8w-Ta-Bqs"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginSegue" modalTransitionStyle="crossDissolve" id="v8w-Ta-Bqs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OcI-SQ-W4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
