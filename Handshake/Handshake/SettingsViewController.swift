@@ -43,9 +43,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     @IBAction func doneButtonTapped(sender: AnyObject) {
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell")! as! SettingsCell
         cell.backgroundColor = UIColor.clearColor()

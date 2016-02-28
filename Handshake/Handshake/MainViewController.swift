@@ -40,6 +40,17 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
         let person = try! context.objectWithType("Person", identifier: email, forKey: "email") as! Person
 
         shakeHandler.prepareToSend(person, inside: context)
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            
+            if NSUserDefaults.standardUserDefaults().objectForKey("hasActivated") == nil {
+                // First launch
+                NSUserDefaults.standardUserDefaults().setObject("launched", forKey: "hasActivated")
+                self.performSegueWithIdentifier("SettingsSegue", sender: self)
+            }
+        }
+        
+
 
         if let name = person.firstName {
             titleLabel.text = "Welcome, \(name)!"

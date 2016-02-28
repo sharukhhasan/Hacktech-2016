@@ -16,12 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var bool_firstName: Bool?, bool_secondName: Bool?, bool_email: Bool?, bool_phoneNumber: Bool?, bool_facebookUrl: Bool?, bool_linkedinUrl: Bool?
     
-    var firstActivity: Bool?
-
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
         
         return true
     }

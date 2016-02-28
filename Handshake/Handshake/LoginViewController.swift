@@ -29,6 +29,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         context = delegate.managedObjectContext
 
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+        
             if (NSUserDefaults.standardUserDefaults().objectForKey("UserEmail") != nil)
             {
                 self.performSegueWithIdentifier("loginSegue", sender: self)
