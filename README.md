@@ -1,6 +1,6 @@
 # Handshake
 
-Imagine you are at a hackathon. During the networking events and team building mixers, you mingle and meet tons of people. "Hi, I'm Jake...", "John...", "I'm Jason", "I'm from New Jersey...". Information is being thrown at you and you're overwhelmed. Everything is becoming jumbled up. By the end, you've forgotten most of their names. Of the ones you do remember and want to connect with, you have no information to go off of except a first name and some basic information. In addition, you're tired from a night of networking and there's no way you'll remember your conversations the next day.
+Imagine you are at a hackathon (or networking mixer, or conference, or anything that involves meeting people). During the networking events and team building mixers, you mingle and meet tons of people. "Hi, I'm Jake...", "John...", "I'm Jason", "I'm from New Jersey...". Information is being thrown at you and you're overwhelmed. Everything is becoming jumbled up. By the end, you've forgotten most of their names. Of the ones you do remember and want to connect with, you have no information to go off of except a first name and some basic information. In addition, you're tired from a night of networking and want to sleep, but there's no way you'll remember your conversations the next day.
 
 That's where Handshake comes in. With Handshake, you can quickly sync with everyone you meet with a simple handshake (or shake of your phones). 
 
