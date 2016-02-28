@@ -368,18 +368,24 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBm-WJ-sZD">
-                                <rect key="frame" x="224" y="508" width="32" height="32"/>
+                                <rect key="frame" x="210" y="480" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="n9h-Ip-0AI"/>
+                                    <constraint firstAttribute="width" secondItem="BBm-WJ-sZD" secondAttribute="height" multiplier="1:1" id="pr2-3w-ebl"/>
+                                </constraints>
                                 <state key="normal" image="cancel-button-round"/>
                                 <connections>
                                     <action selector="cancelButtonClicked:" destination="p9d-X7-aHH" eventType="primaryActionTriggered" id="E5C-f1-hcS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff0-ZW-Dxu">
-                                <rect key="frame" x="344" y="508" width="32" height="32"/>
+                                <rect key="frame" x="330" y="480" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Vnx-0y-YjX"/>
+                                    <constraint firstAttribute="width" secondItem="Ff0-ZW-Dxu" secondAttribute="height" multiplier="1:1" id="odd-zQ-2to"/>
+                                    <constraint firstAttribute="width" constant="60" id="z8W-m1-cib"/>
                                 </constraints>
                                 <state key="normal" image="check-button-round"/>
                                 <variation key="default">
