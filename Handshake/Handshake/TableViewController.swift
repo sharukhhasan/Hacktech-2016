@@ -138,7 +138,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func facebookButtonTapped(sender: UIButton) {
         let person = people?[sender.tag]
         if var facebookUrl = person?.facebookUrl {
-            if facebookUrl.lowercaseString.hasPrefix("http://") == false {
+            if facebookUrl.lowercaseString.hasPrefix("http://") == false
+                && facebookUrl.lowercaseString.hasPrefix("http://") == false {
                 facebookUrl = "http://\(facebookUrl)"
             }
 
