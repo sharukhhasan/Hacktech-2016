@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var lastName: String?
     var email: String?
     
-    let arraySettings = ["First Name", "Last Name", "Email"]
+    let arraySettings = ["First Name", "Last Name", "Email", "Phone Number", "Company", "Facebook Link", "LinkedIn Link"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 7
     }
 
     @IBAction func doneButtonTapped(sender: AnyObject) {
@@ -117,6 +117,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 cell.textField?.text = user?.email
                 cell.uiSwitch.on = !NSUserDefaults.standardUserDefaults().boolForKey("lastNameOff")
                 break
+            case 3:
+                cell.textField?.text = user?.phoneNumber
+            case 4:
+                cell.textField?.text = user?.company
             default:
                 break
             
