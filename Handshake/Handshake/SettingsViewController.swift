@@ -36,6 +36,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         user = try! context?.objectWithType("Person", identifier: id, forKey: "id") as! Person
 
         view.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatSkyBlueColor(), UIColor.flatBlueColorDark()])
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: nil) { (note) -> Void in
+            UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
+                self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 400, right: 0)
+                }, completion: nil);
+        }
+
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
