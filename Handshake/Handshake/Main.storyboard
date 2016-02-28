@@ -309,7 +309,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gr8-PZ-wfS">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gr8-PZ-wfS">
                                 <rect key="frame" x="0.0" y="67" width="600" height="533"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="DfP-Wo-mF5">
@@ -338,7 +338,7 @@
                                                     </connections>
                                                 </switch>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="074-Jr-6BY">
-                                                    <rect key="frame" x="66" y="31.5" width="435" height="17"/>
+                                                    <rect key="frame" x="66" y="8" width="435" height="63.5"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -349,11 +349,13 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="GbV-in-RK7" firstAttribute="centerY" secondItem="KMe-7u-Voy" secondAttribute="centerY" id="4rW-If-hC6"/>
+                                                <constraint firstItem="074-Jr-6BY" firstAttribute="top" secondItem="KMe-7u-Voy" secondAttribute="topMargin" id="DuX-qY-kMp"/>
                                                 <constraint firstItem="WRZ-jh-DIA" firstAttribute="leading" secondItem="074-Jr-6BY" secondAttribute="trailing" constant="20" id="Fpl-jk-UP1"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="WRZ-jh-DIA" secondAttribute="trailing" constant="22" id="JKg-sK-zq7"/>
                                                 <constraint firstItem="074-Jr-6BY" firstAttribute="centerY" secondItem="KMe-7u-Voy" secondAttribute="centerY" id="Nma-OV-xyC"/>
                                                 <constraint firstItem="074-Jr-6BY" firstAttribute="leading" secondItem="GbV-in-RK7" secondAttribute="trailing" constant="8" id="Q85-Xj-a3y"/>
                                                 <constraint firstItem="GbV-in-RK7" firstAttribute="leading" secondItem="KMe-7u-Voy" secondAttribute="leadingMargin" constant="8" id="TKX-sr-aQ4"/>
+                                                <constraint firstItem="074-Jr-6BY" firstAttribute="bottom" secondItem="KMe-7u-Voy" secondAttribute="bottomMargin" id="ZrE-YS-YjT"/>
                                                 <constraint firstItem="WRZ-jh-DIA" firstAttribute="centerY" secondItem="KMe-7u-Voy" secondAttribute="centerY" id="iQg-Uq-pKM"/>
                                             </constraints>
                                         </tableViewCellContentView>
