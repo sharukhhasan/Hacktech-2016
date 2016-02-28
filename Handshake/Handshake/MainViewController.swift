@@ -36,7 +36,8 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         context = delegate.managedObjectContext
 
-        let person = context.save(["firstName": "Justin", "lastName": "Jia", "email": "justin.jia@icloud.com"], description: shakeHandler!.mapping, error: nil) as! Person
+        let email = NSUserDefaults.standardUserDefaults().objectForKey("UserEmail")
+        let person = try! context.objectWithType("Person", identifier: email, forKey: "email") as! Person
 
         shakeHandler.prepareToSend(person, inside: context)
 
