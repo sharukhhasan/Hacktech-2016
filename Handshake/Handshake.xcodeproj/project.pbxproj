@@ -10,6 +10,7 @@
 		AF57CCBD7894E2EA55DCC531 /* Pods_Handshake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C535288EE370B036460253A /* Pods_Handshake.framework */; };
 		D0B980361C81941A00DACBCF /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D0E620EF1C82335A00CCDB12 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E620EE1C82335A00CCDB12 /* LoginViewController.swift */; };
+		D0E620F11C827CE900CCDB12 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E620F01C827CE900CCDB12 /* PersonCell.swift */; };
 		D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A71C818A5C00691260 /* AppDelegate.swift */; };
 		D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177A91C818A5C00691260 /* MainViewController.swift */; };
 		D0F177B01C818A5C00691260 /* Handshake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0F177AE1C818A5C00691260 /* Handshake.xcdatamodeld */; };
@@ -20,7 +21,6 @@
 		D0F177DA1C818DA300691260 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */; };
 		D0F177DB1C818DA300691260 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F177D91C818DA300691260 /* Person.swift */; };
 		EE44F76A1C820FB300314215 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F7691C820FB300314215 /* TableViewController.swift */; };
-		EE44F76E1C820FC500314215 /* SwipeLeftSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F76B1C820FC500314215 /* SwipeLeftSegue.swift */; };
 		EE44F7721C820FCE00314215 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44F7711C820FCE00314215 /* ConfirmViewController.swift */; };
 		EE44F7741C82514400314215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE44F7731C82514400314215 /* Main.storyboard */; };
 		EE5837C11C81A70F00768863 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5837C01C81A70F00768863 /* CoreDataHelper.swift */; };
@@ -50,6 +50,7 @@
 		55B3C84C7F9215F65B34C85E /* Pods-Handshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Handshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Handshake/Pods-Handshake.release.xcconfig"; sourceTree = "<group>"; };
 		6C535288EE370B036460253A /* Pods_Handshake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Handshake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E620EE1C82335A00CCDB12 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D0E620F01C827CE900CCDB12 /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		D0F177A41C818A5C00691260 /* Handshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F177A71C818A5C00691260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0F177A91C818A5C00691260 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		D0F177D81C818DA300691260 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0F177D91C818DA300691260 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		EE44F7691C820FB300314215 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		EE44F76B1C820FC500314215 /* SwipeLeftSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeLeftSegue.swift; sourceTree = "<group>"; };
 		EE44F7711C820FCE00314215 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		EE44F7731C82514400314215 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EE5837C01C81A70F00768863 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
@@ -195,6 +195,7 @@
 			children = (
 				D0F177B11C818A5C00691260 /* Assets.xcassets */,
 				EE44F7731C82514400314215 /* Main.storyboard */,
+				D0E620F01C827CE900CCDB12 /* PersonCell.swift */,
 				D0F177B31C818A5C00691260 /* LaunchScreen.storyboard */,
 			);
 			name = View;
@@ -203,9 +204,8 @@
 		D0F177DE1C818DE400691260 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EE44F76B1C820FC500314215 /* SwipeLeftSegue.swift */,
-				EE44F7711C820FCE00314215 /* ConfirmViewController.swift */,
 				D0F177A91C818A5C00691260 /* MainViewController.swift */,
+				EE44F7711C820FCE00314215 /* ConfirmViewController.swift */,
 				EE44F7691C820FB300314215 /* TableViewController.swift */,
 				D0E620EE1C82335A00CCDB12 /* LoginViewController.swift */,
 			);
@@ -395,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0E620EF1C82335A00CCDB12 /* LoginViewController.swift in Sources */,
+				D0E620F11C827CE900CCDB12 /* PersonCell.swift in Sources */,
 				EE44F7721C820FCE00314215 /* ConfirmViewController.swift in Sources */,
 				EE5837C31C81A74400768863 /* CoreDataStore.swift in Sources */,
 				EE5837C11C81A70F00768863 /* CoreDataHelper.swift in Sources */,
@@ -406,7 +407,6 @@
 				EEBD03D11C81ADCC00FBCFAA /* ShakeHandler.swift in Sources */,
 				D0F177AA1C818A5C00691260 /* MainViewController.swift in Sources */,
 				D0F177A81C818A5C00691260 /* AppDelegate.swift in Sources */,
-				EE44F76E1C820FC500314215 /* SwipeLeftSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

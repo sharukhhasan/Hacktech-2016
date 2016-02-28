@@ -40,16 +40,8 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
 
         shakeHandler.prepareToSend(person, inside: context)
 
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-        self.view.addGestureRecognizer(swipeLeft)
-
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-        self.view.addGestureRecognizer(swipeRight)
-
         if let name = person.firstName {
-            titleLabel.text = "Welcome, \(name)"
+            titleLabel.text = "Welcome, \(name)!"
         } else {
             titleLabel.text = "Welcome to Handshake!"
         }
@@ -72,6 +64,10 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
             let destinationViewController = segue.destinationViewController as! TableViewController
             destinationViewController.context = context
         }
+    }
+
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 
     // MARK: UIViewControllerTransitioningDelegate
@@ -104,26 +100,6 @@ class MainViewController: UIViewController, ShakeHandlerDelegate, UIViewControll
             }
         }
     }
-
-    // MARK: Gesture
-
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Right:
-                print("Swiped right")
-                performSegueWithIdentifier("PastSegue", sender: self)
-                break
-            case UISwipeGestureRecognizerDirection.Left:
-                print("Swiped left")
-                performSegueWithIdentifier("PastSegue", sender: self)
-                break
-            default:
-                break
-            }
-        }
-    }
-
 
     // MARK: ShakeHandlerDelegate
 
