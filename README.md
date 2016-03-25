@@ -9,3 +9,11 @@ That's where Handshake comes in. With Handshake, you can quickly sync with every
 * Step 3. Shake!
 
 That's it - all it took was a simple shake! They will then show up in your connection history, where you will have access to the profiles they chose to make public. From there, you can effortlessly sync up and connect with them! 
+
+![Alt tag] (https://drive.google.com/file/d/0B_sksBAmRRvyZ0RSLUVQY0JaWFU/view?usp=sharing)
+
+![Alt tag] (https://drive.google.com/file/d/0B_sksBAmRRvyVGFKZ2JBTm9VZHM/view?usp=sharing)
+
+![Alt tag] (https://drive.google.com/file/d/0B_sksBAmRRvyWkRqLVJxS3NNMVE/view?usp=sharing)
+
+![Alt tag] (https://drive.google.com/file/d/0B_sksBAmRRvyQW1SbWNaNzlQeE0/view?usp=sharing)
