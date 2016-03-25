@@ -14,8 +14,5 @@ That's it - all it took was a simple shake! They will then show up in your conne
 
 ## Screenshots
 
-![Handshake Home Screen] (https://github.com/sharukhhasan/Handshake-iOS/blob/master/AppScreenshots/homescreen.png)
+![Handshake Home Screen] (https://github.com/sharukhhasan/Handshake-iOS/blob/master/AppScreenshots/homescreen.png) ![Past Handshakes Screen] (https://github.com/sharukhhasan/Handshake-iOS/blob/master/AppScreenshots/pastshakesscreen.png) ![Settings Screen] (https://github.com/sharukhhasan/Handshake-iOS/blob/master/AppScreenshots/settingsscreen.png)
 
-![Past Handshakes Screen] (https://github.com/sharukhhasan/Handshake-iOS/blob/master/AppScreenshots/pastshakesscreen.png)
-
-![Settings Screen] (https://github.com/sharukhhasan/Handshake-iOS/blob/master/AppScreenshots/settingsscreen.png)
