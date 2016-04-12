@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gHk-fC-SO0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F18c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gHk-fC-SO0">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -181,7 +181,7 @@
                                                         <constraint firstAttribute="width" secondItem="OMg-xe-3ZO" secondAttribute="height" multiplier="1:1" id="SFL-2Z-f92"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5k-vf-2bh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5k-vf-2bh">
                                                     <rect key="frame" x="79" y="28" width="53" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -235,7 +235,9 @@
                                                 <constraint firstItem="9WZ-Hi-eSB" firstAttribute="centerY" secondItem="kCD-uX-P0Y" secondAttribute="centerY" id="1Wv-cK-hcT"/>
                                                 <constraint firstItem="fS4-fq-ePh" firstAttribute="leading" secondItem="RdI-Nh-A6F" secondAttribute="trailing" constant="8" id="1g0-ED-lL2"/>
                                                 <constraint firstItem="RdI-Nh-A6F" firstAttribute="width" secondItem="RdI-Nh-A6F" secondAttribute="height" multiplier="1:1" id="2Zh-5L-qOF"/>
+                                                <constraint firstItem="RdI-Nh-A6F" firstAttribute="leading" secondItem="f5k-vf-2bh" secondAttribute="trailing" constant="20" id="AAD-WD-bKk"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9WZ-Hi-eSB" secondAttribute="trailing" constant="8" id="B7Z-I6-lzk"/>
+                                                <constraint firstItem="f5k-vf-2bh" firstAttribute="leading" secondItem="OMg-xe-3ZO" secondAttribute="trailing" constant="20" id="GFv-Kt-hUO"/>
                                                 <constraint firstItem="fS4-fq-ePh" firstAttribute="centerY" secondItem="kCD-uX-P0Y" secondAttribute="centerY" id="SNL-fT-ZOw"/>
                                                 <constraint firstItem="f5k-vf-2bh" firstAttribute="leading" secondItem="OMg-xe-3ZO" secondAttribute="trailing" constant="8" id="YWe-rY-Hnd"/>
                                                 <constraint firstItem="OMg-xe-3ZO" firstAttribute="bottom" secondItem="kCD-uX-P0Y" secondAttribute="bottomMargin" id="bUC-xR-Xnz"/>
