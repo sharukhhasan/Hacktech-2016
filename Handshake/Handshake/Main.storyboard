@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gHk-fC-SO0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gHk-fC-SO0">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -61,8 +61,8 @@
                                     <segue destination="Elx-ta-4Hx" kind="presentation" identifier="SettingsSegue" id="NNP-vd-JNU"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="shake" translatesAutoresizingMaskIntoConstraints="NO" id="edm-fC-Bmv">
-                                <rect key="frame" x="180" y="224" width="240" height="150"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shake" translatesAutoresizingMaskIntoConstraints="NO" id="edm-fC-Bmv">
+                                <rect key="frame" x="180" y="225" width="240" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="177" id="1WO-ge-NPd"/>
                                     <constraint firstAttribute="width" constant="240" id="e2W-vg-mAd"/>
@@ -326,34 +326,45 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbV-in-RK7">
-                                                    <rect key="frame" x="16" y="29.5" width="42" height="20.5"/>
+                                                    <rect key="frame" x="16" y="29.5" width="100" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="S9k-5G-UVW"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WRZ-jh-DIA">
-                                                    <rect key="frame" x="521" y="24" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="switchValueChanged:" destination="Elx-ta-4Hx" eventType="valueChanged" id="tOk-ey-XCQ"/>
-                                                    </connections>
-                                                </switch>
                                                 <textField opaque="NO" clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="074-Jr-6BY">
-                                                    <rect key="frame" x="66" y="8" width="120" height="64"/>
+                                                    <rect key="frame" x="124" y="8" width="377" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="Qoz-sV-fEW"/>
                                                     </constraints>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Qoz-sV-fEW"/>
+                                                        </mask>
+                                                    </variation>
                                                     <connections>
                                                         <action selector="textFieldEditingChanged:" destination="Elx-ta-4Hx" eventType="editingChanged" id="c6f-Og-tvk"/>
                                                     </connections>
                                                 </textField>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WRZ-jh-DIA">
+                                                    <rect key="frame" x="521" y="24" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="49" id="uck-ba-WaF"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="switchValueChanged:" destination="Elx-ta-4Hx" eventType="valueChanged" id="tOk-ey-XCQ"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="GbV-in-RK7" firstAttribute="centerY" secondItem="KMe-7u-Voy" secondAttribute="centerY" id="4rW-If-hC6"/>
                                                 <constraint firstItem="074-Jr-6BY" firstAttribute="top" secondItem="KMe-7u-Voy" secondAttribute="topMargin" id="DuX-qY-kMp"/>
-                                                <constraint firstItem="WRZ-jh-DIA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="074-Jr-6BY" secondAttribute="trailing" constant="20" id="Fpl-jk-UP1"/>
+                                                <constraint firstItem="WRZ-jh-DIA" firstAttribute="leading" secondItem="074-Jr-6BY" secondAttribute="trailing" constant="20" id="Fpl-jk-UP1"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="WRZ-jh-DIA" secondAttribute="trailing" constant="22" id="JKg-sK-zq7"/>
                                                 <constraint firstItem="074-Jr-6BY" firstAttribute="centerY" secondItem="KMe-7u-Voy" secondAttribute="centerY" id="Nma-OV-xyC"/>
                                                 <constraint firstItem="074-Jr-6BY" firstAttribute="leading" secondItem="GbV-in-RK7" secondAttribute="trailing" constant="8" id="Q85-Xj-a3y"/>
@@ -427,7 +438,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You just shook hands with {Name}!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtn-Ri-vo3">
-                                <rect key="frame" x="101" y="80" width="400" height="29"/>
+                                <rect key="frame" x="100" y="80" width="400" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>

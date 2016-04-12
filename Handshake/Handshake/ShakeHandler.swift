@@ -102,7 +102,7 @@ class ShakeHandler: NSObject, MCNearbyServiceAdvertiserDelegate, MCNearbyService
         advertiser!.startAdvertisingPeer()
         browser!.startBrowsingForPeers()
 
-        let timer = NSTimer(timeInterval: 5, target: self, selector: "timeout:", userInfo: nil, repeats: false)
+        let timer = NSTimer(timeInterval: 5, target: self, selector: #selector(ShakeHandler.timeout(_:)), userInfo: nil, repeats: false)
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
     }
 

@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var facebookUrl: String?
     var linkedinUrl: String?
 
-    let arraySettings = ["First Name", "Last Name", "Email", "Phone Number", "Company", "Facebook Link", "Linkedin Name"]
+    let arraySettings = ["First Name", "Last Name", "Email", "Phone", "Company", "Facebook", "LinkedIn Handle"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
